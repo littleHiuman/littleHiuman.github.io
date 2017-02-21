@@ -1,1 +1,108 @@
-"HelloWorld" 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>littleHiuman的个人博客</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{ margin: 0;padding: 0;list-style: none;text-decoration: none; }
+		body{ background: #fff;font-family: Arial,"微软雅黑"; }
+		.container{ width: 1000px;margin: 0 auto; }
+		.clear{ clear: both;height: 1px; }
+
+		.container_top{ background: url('banner.jpg') no-repeat;height: 450px;position: relative; }
+		.container_top .intro{ position: absolute;top: 20px;left: 200px; }
+		.container_top .title{ color: rgb(199, 50, 102); }
+		.container_top .message{ font-style: italic;color: rgb(199, 50, 102); }
+
+		.container_center{ background: #eee;overflow: hidden; }
+		.container_center .list{ background: rgb(199, 50, 102);color: #fff;font-weight: bold;height: 40px;line-height: 40px;text-align: center;padding-left: 200px; }
+		.container_center .list li{ float: left;width: 90px; }
+		.container_center .list li:hover{ background: #53ceb1; }
+		.container_center .list a{ display: block;color: #fff; }
+
+		.container_center .content li{ float: left;border: 1px dashed gray;padding: 10px;margin: 8px; }
+		.container_center .content li:nth-child(1){ width: 56%; }
+		.container_center .content li:nth-child(2){ width: 36%; }
+		.container_center .content .intro{ color: gray;font-weight: bold;height: 30px;line-height: 30px; }
+		.container_center .content .view{ min-height: 30px;line-height: 30px;width: 100%;max-height: 1200px; }
+		.container_center .content a,.container_center .content .me p{ color: #53ceb1; }
+		.container_center .content p{ line-height: 40px; }
+		.container_center .content .tool{ font-weight: bold; }
+		.container_center .content .tool a{ padding: 0 10px; }
+		.container_center .content .date{ font-size: 16px;font-weight: bold; }
+		.container_center .content .log{ word-wrap:break-word; word-break:normal;max-height: 160px;overflow: hidden;text-overflow: ellipsis;color: rgb(199, 50, 102); }
+		.container_center .content .msg{ color: #8a63db; }
+		.container_center .content .name{ color: rgb(199, 50, 102);font-weight: bold;display: block;text-align: center; }
+		
+		.line{ height: 10px; }
+		.dashedline{ border: 1px dashed gray;height: 0px;margin: 8px 0; }
+
+		.container_bottom{ width: 100%;height: 40px;line-height: 40px;text-align: center;background: rgb(199, 50, 102);color: #fff;font-weight: bold; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="container_top">
+			<div class="intro">
+				<h1 class="title">littleHiuman的个人博客</h1>
+				<p class="message">用来记录我的笔记，搜集的资料等等</p>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="container_center">
+			<ul class="list">
+				<li><a href="javascript:;">首页</a></li>
+				<li><a href="javascript:;">日志</a></li>
+				<li><a href="javascript:;">相册</a></li>
+				<li><a href="javascript:;">其他</a></li>
+				<li><a href="javascript:;">关于我</a></li>
+			</ul>
+			<div class="clear"></div>
+			<ul class="content">
+				<li>
+					<div class="intro">日志</div>
+					<div class="line"></div>
+					<div class="view">
+						<div class="infomation">
+							<h2><a href="">my first log</a></h2>
+							<p class="date msg">2017-2-21</p>
+							<p class="log">(My English is not good,hahahahhh....) I'm happy to make this page, although it just div + css without any javaScript .. Before, I wrote my log on other blog, no one knows me, but sometimes someone copied my log to other blog, without my permission, I also happy, I help others, just a little.</p>
+							<div class="tool"><a href="">阅读</a>|<a href="">评论</a></div>
+						</div>
+						<div class="dashedline"></div>
+					</div>
+					<a class="msg" href="" style="font-size: 14px;text-align: right;display: block;padding-right: 10px;">更多日志</a>
+				</li>
+				<li>
+					<div class="intro">关于我</div>
+					<div class="line"></div>
+					<div class="view">
+						<div class="me">
+							<img style="width: 140px;display: block;margin: 0 auto;border: 1px dashed gray;" src="hiuman.jpg" alt="myPic">
+							<span class="name">littleHiuman</span>
+							<div class="dashedline"></div>
+							<p>Think：<span class="msg">Study hard and make progress every day.</span></p>
+							<p>我的技术博客：<a href="http://hiuman.iteye.com/" class="msg">http://hiuman.iteye.com/</a></p>
+							<p>我的日常博客：<a href="http://kimjaejooung.blog.163.com/" class="msg">http://kimjaejooung.blog.163.com/</a></p>
+							<p>今日访问人数：<span class="msg"></span></p>
+							<p>总访问人数：<span class="msg"></span></p>
+							<p>最后登录：<span class="msg">2017-2-21</span></p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="container_bottom">
+			©2017-2017
+		</div>
+
+	</div>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+	<script type="text/javascript">
+		window.onload = function(){
+			console.log("ip："+returnCitySN["cip"]+'，地区：'+returnCitySN["cname"]+"，来源："+(document.referrer==""?"未知":document.referrer))
+		}
+	</script>
+</body>
+</html>
