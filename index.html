@@ -39,9 +39,53 @@
 		.dashedline{ border: 1px dashed gray;height: 0px;margin: 8px 0; }
 
 		.container_bottom{ width: 100%;height: 40px;line-height: 40px;text-align: center;background: rgb(199, 50, 102);color: #fff;font-weight: bold;margin-top: 20px; }
+
+		.the-shade-wrap{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0,0,0,.5);
+			z-index: 10;
+		}
+		.the-shade{
+			width: 300px;
+			height: 200px;
+			background: #fff;
+			position: fixed;
+			left: 50%;
+			margin-left: -150px;
+			top: 50%;
+			margin-top: -100px;
+			text-align: center;
+		}
+		.the-shade-title{
+			height: 50px;
+			line-height: 50px;
+			font-size: 20px;
+			border-bottom: 1px solid #ddd;
+		}
 	</style>
 </head>
 <body>
+	<div class="the-shade-wrap">
+		<div class="the-shade">
+			<p class="the-shade-title">提示</p>
+			<div class="the-shade-con" style="height: 100px;line-height: 100px;">
+				想要前往至 我的简历 页吗
+			</div>
+			<div style="overflow: hidden;border-top: 1px solid #ddd;">
+				<div class="the-shade-cancel" style="float: left;width: 50%;height: 50px;line-height: 50px;">取消</div>
+				<div style="float: left;width: 50%;height: 50px;line-height: 50px;"><a href="./index_resume.html">确定</a></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		document.getElementsByClassName('the-shade-cancel')[0].onclick=function(){
+			document.getElementsByClassName('the-shade-wrap')[0].style.display = 'none'
+		}
+	</script>
 	<div class="container">
 		<div class="container_top">
 			<div class="intro">
