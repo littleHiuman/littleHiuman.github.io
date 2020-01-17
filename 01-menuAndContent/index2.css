@@ -1,124 +1,138 @@
 /**
- * 
+ *
  */
-*{
-	margin: 0;
-	padding: 0;
-	font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
-	/*font-size: 14px;*/
-	font-weight: bold;
-	text-decoration: none;
-	list-style: none;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York',
+    serif;
+  /*font-size: 14px;*/
+  font-weight: bold;
+  text-decoration: none;
+  list-style: none;
 }
-a{ color: #000; }
-.clear{ clear: both; }
-.fl{ float: left; }
-.fr{ float: right; }
+a {
+  color: #000;
+}
+.clear {
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
 
 /**
- * 
+ *
  */
 
-.container{ margin: 15px; }
-
-.part{
-	margin-bottom: 20px;
-}
-.part>h2{ 
-	float: left;
-	width: 9%;
-	height: 101px;
-	border-bottom: 1px solid gray;
-	line-height: 30px;
-	/*text-align: center;*/
-	margin-right: -1px;
+.container {
+  margin: 15px;
 }
 
-.arrow>div{
-	cursor: pointer;
-	background: #eee;
-	width: 20px;
-	height: 100px;
-	line-height: 102px;
-	text-align: center;
-	position: absolute;
-	right: 26px;
-	font-size: 14px;
+.part {
+  margin-bottom: 20px;
 }
-.arrow div:first-child{
-	left: 8%;
-}
-.arrow>div:hover{
-	background: lightblue;
-	color: #fff;
+.part > h2 {
+  float: left;
+  width: 9%;
+  height: 101px;
+  border-bottom: 1px solid gray;
+  line-height: 30px;
+  /*text-align: center;*/
+  margin-right: -1px;
 }
 
-.menulist{
-	float: left;
-	position: relative;
-	padding-left: 1px;
-	width: 90%;
-	height: 102px;
-	overflow: hidden;
+.arrow > div {
+  cursor: pointer;
+  background: #eee;
+  width: 20px;
+  height: 100px;
+  line-height: 102px;
+  text-align: center;
+  position: absolute;
+  right: 26px;
+  font-size: 14px;
 }
-.menu{ 
-	position: relative;
-	border-bottom: 1px solid gray; 
-	height: 101px;
+.arrow div:first-child {
+  left: 8%;
 }
-.menu li,.content li{ 
-	float: left;
-}
-.menu li{
-	height: 100px;
-	line-height: 50px;
-	width: 200px;
-	text-align: center;
-	border: none;
-	border-top: 1px solid #ddd;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	margin-bottom: -1px;
-	margin-left: -1px;
-}
-.menu li.cur{ 
-	border: none;
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-	border-top: 2px solid blue;
-	background: #fff;
-}
-.menu li.border-left{
-	border-left: 1px solid gray;
-}
-.menu li a, .menu li span{
-	display: inline-block;
-	width: 100%;
-}
-.menu li span{
-	cursor: pointer;
-	font-size: 14px;
-	color: #646d8e;
+.arrow > div:hover {
+  background: lightblue;
+  color: #fff;
 }
 
-.content .list{
-	padding: 20px 0;
+.menulist {
+  float: left;
+  position: relative;
+  padding-left: 1px;
+  width: 90%;
+  height: 102px;
+  overflow: hidden;
 }
-.content li{
-	padding: 0 12px;
-	width: 200px;
-	text-align: center;
+.menu {
+  position: relative;
+  border-bottom: 1px solid gray;
+  height: 101px;
 }
-.content li div{
-	padding: 10px 0;
+.menu li,
+.content li {
+  float: left;
 }
-.content li img{
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 0 auto;
+.menu li {
+  height: 100px;
+  line-height: 50px;
+  width: 200px;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  margin-bottom: -1px;
+  margin-left: -1px;
 }
-.content li h3,.content li p{
-	height: 30px;
-	line-height: 30px;
+.menu li.cur {
+  border: none;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 2px solid blue;
+  background: #fff;
+}
+.menu li.border-left {
+  border-left: 1px solid gray;
+}
+.menu li a,
+.menu li span {
+  display: inline-block;
+  width: 100%;
+}
+.menu li span {
+  cursor: pointer;
+  font-size: 14px;
+  color: #646d8e;
+}
+
+.content .list {
+  padding: 20px 0;
+}
+.content li {
+  padding: 0 12px;
+  width: 200px;
+  text-align: center;
+}
+.content li div {
+  padding: 10px 0;
+}
+.content li img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+}
+.content li h3,
+.content li p {
+  height: 30px;
+  line-height: 30px;
 }

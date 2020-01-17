@@ -1,224 +1,217 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>首页</title>
-	<link rel="stylesheet" type="text/css" href="index2.css">
-</head>
-<body>
-	<div class="container">
-		<div class="part">
-			
-			<h2>PART</h2>
-			<div class="menulist">
-				<ul class="menu">
-					<li class="cur"><a href="javascript:;">菜单1</a><br><span>- 关于 -</span></li>
-					<li class="border-left"><a href="javascript:;">菜单2</a><br><span>- 关于 -</span></li>
-					<li><a href="javascript:;">菜单3</a><br><span>- 关于 -</span></li>
-					<li><a href="javascript:;">菜单4</a><br><span>- 关于 -</span></li>
-					<li><a href="javascript:;">菜单5</a><br><span>- 关于 -</span></li>
-					<li><a href="javascript:;">菜单6</a><br><span>- 关于 -</span></li>
-					<div class="clear"></div>
-				</ul>
-			</div>
-			<div class="arrow">
-					<div class="arrow-left"><</div>
-					<div class="arrow-right">></div>
-				</div>
-			<!-- 如果div.content里面的ul个数比div.menulist里面的ul多，不会报错，但是会弹框提示个数不相等
+  <head>
+    <meta charset="utf-8" />
+    <title>【布局】菜单栏和内容以及它的改进版</title>
+    <link rel="stylesheet" type="text/css" href="index2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="part">
+        <h2>PART</h2>
+        <div class="menulist">
+          <ul class="menu">
+            <li class="cur">
+              <a href="javascript:;">菜单1</a><br /><span>- 关于 -</span>
+            </li>
+            <li class="border-left">
+              <a href="javascript:;">菜单2</a><br /><span>- 关于 -</span>
+            </li>
+            <li><a href="javascript:;">菜单3</a><br /><span>- 关于 -</span></li>
+            <li><a href="javascript:;">菜单4</a><br /><span>- 关于 -</span></li>
+            <li><a href="javascript:;">菜单5</a><br /><span>- 关于 -</span></li>
+            <li><a href="javascript:;">菜单6</a><br /><span>- 关于 -</span></li>
+            <div class="clear"></div>
+          </ul>
+        </div>
+        <div class="arrow">
+          <div class="arrow-left"><</div>
+          <div class="arrow-right">></div>
+        </div>
+        <!-- 如果div.content里面的ul个数比div.menulist里面的ul多，不会报错，但是会弹框提示个数不相等
 				 如果div.content里面的ul个数比div.menulist里面的ul少，代码中会报错 -->
-			<div class="content">
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题1</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<div class="clear"></div>
-				</ul>
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题2</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-				</ul>
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题3</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-				</ul>
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题4</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-				</ul>
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题5</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-				</ul>
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题6</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		window.onload = function(){
-			var menuDiv = document.getElementsByClassName('menulist')[0];
-			var menu = document.getElementsByClassName('menu')[0];
-			var menulist = menu.getElementsByTagName('li');
-			var contentlist = document.getElementsByClassName('content')[0].getElementsByClassName('list');
+        <div class="content">
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题1</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <div class="clear"></div>
+          </ul>
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题2</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+          </ul>
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题3</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+          </ul>
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题4</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+          </ul>
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题5</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+          </ul>
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题6</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function() {
+        var menuDiv = document.getElementsByClassName('menulist')[0]
+        var menu = document.getElementsByClassName('menu')[0]
+        var menulist = menu.getElementsByTagName('li')
+        var contentlist = document
+          .getElementsByClassName('content')[0]
+          .getElementsByClassName('list')
 
-			var windowWidth;
-			if(menulist.length != contentlist.length){
-				alert('菜单个数和列表个数不相等')
-			}
+        var windowWidth
+        if (menulist.length != contentlist.length) {
+          alert('菜单个数和列表个数不相等')
+        }
 
-			var menulistClassname;
-			var menulistNode;
-			var listnumber;
-			menu.onclick = function(e){
-				menulistNode = e.target.parentNode
-				menulistClassname = menulistNode.className
+        var menulistClassname
+        var menulistNode
+        var listnumber
+        menu.onclick = function(e) {
+          menulistNode = e.target.parentNode
+          menulistClassname = menulistNode.className
 
-				for(var a=0;a<menulist.length;a++){
+          for (var a = 0; a < menulist.length; a++) {
+            if (e.target && menulistNode.nodeName == 'LI') {
+              if (menulistNode == menulist[a]) {
+                if (menulistClassname == 'cur') {
+                  break
+                } else {
+                  listnumber = a
+                  menulist[listnumber].className = 'cur'
+                }
+              } else if (a == listnumber + 1) {
+              } else {
+                listnumber = undefined
+              }
+            }
 
-					if(e.target && menulistNode.nodeName == 'LI'){
+            if (a != listnumber) {
+              menulist[a].className = ''
+            }
 
-						if(menulistNode == menulist[a]){
-							if(menulistClassname == 'cur'){
-								break;
-							}else{
-								listnumber = a;
-								menulist[listnumber].className='cur'
-							}
-						}else if(a == (listnumber+1)){
+            if (a == listnumber + 1) {
+              menulist[a].className = 'border-left'
+            }
+          }
 
-						}else{
-							listnumber = undefined;
-						}
+          changeContent()
+        }
 
-					}
+        function changeListWidth() {
+          windowWidth = document.body.clientWidth
+          for (var y = 0; y < menulist.length; y++) {
+            menulist[y].style.width = (windowWidth * 0.85) / 5 + 'px'
+          }
+          menuDiv.style.width = windowWidth * 0.85 + 'px'
+          menu.style.width = ((windowWidth * 0.9) / 5) * menulist.length + 'px'
+        }
+        setTimeout(changeListWidth, 0)
+        setInterval(changeListWidth, 1000)
 
-					if(a!=listnumber){
-						menulist[a].className = '';
-					}
+        changeContent()
+        function changeContent() {
+          for (var x = 0; x < menulist.length; x++) {
+            if (menulist[x].className == 'cur') {
+              contentlist[x].style.display = 'block'
+            } else {
+              contentlist[x].style.display = 'none'
+              // 如果这里报错，说明div.content里面的ul和div.menulist里面的ul个数不相同
+            }
+          }
+        }
 
-					if(a==(listnumber+1)){
-						menulist[a].className = 'border-left';
-					}
-					
-				}
+        var arrows = document.getElementsByClassName('arrow')[0]
+        var arrowNode
+        var menuLeft = menu.offsetLeft
 
-				changeContent()
-			}
+        function showHideArrow() {
+          if (menulist.length < 6) {
+            arrows.style.display = 'none'
+          } else {
+            arrows.style.display = 'block'
+          }
+        }
 
-			function changeListWidth(){
-				windowWidth = document.body.clientWidth;
-				for(var y=0;y<menulist.length;y++){
-					menulist[y].style.width = (windowWidth*0.85)/5 + 'px';
-				}
-				menuDiv.style.width = windowWidth*0.85 + 'px'
-				menu.style.width = (windowWidth*0.9)/5*menulist.length + 'px';
+        arrows.onclick = function(e) {
+          arrowNode = e.target
+          menuLeft = parseFloat(menuLeft)
+          if (menulist.length >= 6) {
+            if (arrowNode.className == 'arrow-left') {
+              if (
+                menuLeft ==
+                (menulist.length - 5) * ((windowWidth * 0.85) / 5) * -1 + 1
+              ) {
+                alert('已经到最右了')
+              } else {
+                menuLeft -= (windowWidth * 0.85) / 5
+              }
+            } else {
+              if (menuLeft == 1) {
+                alert('已经到最左了')
+              } else {
+                menuLeft += (windowWidth * 0.85) / 5
+              }
+            }
 
-
-			}
-			setTimeout(changeListWidth,0)
-			setInterval(changeListWidth,1000)
-
-			changeContent()
-			function changeContent () {
-				
-				for(var x= 0;x<menulist.length;x++){
-					if(menulist[x].className=='cur'){
-						contentlist[x].style.display = 'block';
-					}else{
-						contentlist[x].style.display = 'none';  
-						// 如果这里报错，说明div.content里面的ul和div.menulist里面的ul个数不相同
-					}
-				}
-
-			}
-
-			var arrows = document.getElementsByClassName('arrow')[0];
-			var arrowNode;
-			var menuLeft = menu.offsetLeft;
-
-			function showHideArrow(){
-				if(menulist.length<6){
-					arrows.style.display='none'
-				}else{
-					arrows.style.display='block'
-				}
-			}
-
-			arrows.onclick = function(e){
-
-				arrowNode = e.target;
-				menuLeft = parseFloat(menuLeft)
-				if(menulist.length>=6){
-				
-					if(arrowNode.className == 'arrow-left'){
-						if(menuLeft == (menulist.length-5)*(windowWidth*0.85/5)*(-1)+1){
-							alert('已经到最右了')
-						}else{
-							menuLeft -= (windowWidth*0.85/5)
-						}
-					}else{
-						if(menuLeft == 1){
-							alert('已经到最左了')
-						}else{
-							menuLeft += (windowWidth*0.85/5)
-						}
-					}
-
-					menuLeft+='px'
-					menu.style.left = menuLeft;
-
-				}else{
-					alert('菜单栏个数少于6个')
-				}
-			}
-
-
-
-		}
-	</script>
-</body>
+            menuLeft += 'px'
+            menu.style.left = menuLeft
+          } else {
+            alert('菜单栏个数少于6个')
+          }
+        }
+      }
+    </script>
+  </body>
 </html>

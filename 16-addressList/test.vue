@@ -9,26 +9,26 @@
 import hmPartLists from "./hmPartLists";
 export default {
   components: {
-    "part-lists": hmPartLists,
+    "part-lists": hmPartLists
   },
   data() {
     return {
       list: [
         {
           name: "A",
-          data: [1, 2, 3, 4, 5],
+          data: [1, 2, 3, 4, 5]
         },
         {
           name: "B",
-          data: [1, 2, 3, 4, 5, 6, 7],
+          data: [1, 2, 3, 4, 5, 6, 7]
         },
         {
           name: "C",
-          data: [1, 2, 3, 4, 5],
-        },
-      ],
+          data: [1, 2, 3, 4, 5]
+        }
+      ]
     };
-  },
+  }
 };
 </script>
 

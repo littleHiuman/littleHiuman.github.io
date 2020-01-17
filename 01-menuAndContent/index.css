@@ -1,79 +1,92 @@
 /**
  * reset
  */
-*{
-	margin: 0;
-	padding: 0;
-	font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
-	/*font-size: 14px;*/
-	font-weight: bold;
-	text-decoration: none;
-	list-style: none;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York',
+    serif;
+  /*font-size: 14px;*/
+  font-weight: bold;
+  text-decoration: none;
+  list-style: none;
 }
-a{ color: #000; }
-.clear{ clear: both; }
-.fl{ float: left; }
-.fr{ float: right; }
+a {
+  color: #000;
+}
+.clear {
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
 
 /**
  * style
  */
 
-.container{ margin: 15px; }
-
-.part{
-	margin-bottom: 20px;
-}
-.part>h2{ 
-	float: left;
-	width: 100px;
-	height: 30px;
-	line-height: 30px;
-	text-align: center;
-	padding-top: 4px; 
-}
-.menu{ 
-	padding-left: 100px;
-	border-bottom: 1px solid gray; 
-}
-.menu li,.content li{ 
-	float: left;
-}
-.menu li{
-	height: 40px;
-	line-height: 40px;
-	width: 200px;
-	text-align: center;
-	margin-bottom: -1px;
-}
-.menu li.cur{ 
-	border: 1px solid gray;
-	border-bottom: none;
-	background: #fff;
-}
-.menu li a{
-	display: block;
-	width: 100%;
+.container {
+  margin: 15px;
 }
 
-.content .list{
-	padding: 20px 0;
+.part {
+  margin-bottom: 20px;
 }
-.content li{
-	padding: 0 12px;
-	width: 200px;
-	text-align: center;
+.part > h2 {
+  float: left;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 4px;
 }
-.content li div{
-	padding: 10px 0;
+.menu {
+  padding-left: 100px;
+  border-bottom: 1px solid gray;
 }
-.content li img{
-	display: block;
-	width: 64px;
-	height: 64px;
-	margin: 0 auto;
+.menu li,
+.content li {
+  float: left;
 }
-.content li h3,.content li p{
-	height: 30px;
-	line-height: 30px;
+.menu li {
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+  text-align: center;
+  margin-bottom: -1px;
+}
+.menu li.cur {
+  border: 1px solid gray;
+  border-bottom: none;
+  background: #fff;
+}
+.menu li a {
+  display: block;
+  width: 100%;
+}
+
+.content .list {
+  padding: 20px 0;
+}
+.content li {
+  padding: 0 12px;
+  width: 200px;
+  text-align: center;
+}
+.content li div {
+  padding: 10px 0;
+}
+.content li img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+}
+.content li h3,
+.content li p {
+  height: 30px;
+  line-height: 30px;
 }

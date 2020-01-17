@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>日历选择</title>
+    <title>JavaScript实现日历选择器 datePicker</title>
     <style>
       input {
         height: 30px;
@@ -122,7 +122,7 @@
           color-stop(0.35, rgba(235, 235, 235, 0)),
           color-stop(0.65, rgba(235, 235, 235, 0)),
           to(rgb(235, 235, 235))
-        )
+        );
       }
     </style>
   </head>
@@ -163,9 +163,14 @@
       var fixed_bg = document.getElementsByClassName('fixed_bg')[0]
       var alert_close = document.getElementsByClassName('alert_close')[0]
       var alert_sure = document.getElementsByClassName('alert_sure')[0]
-      var alert_list_msg_con = document.getElementsByClassName('alert_list_msg_con')[0]
+      var alert_list_msg_con = document.getElementsByClassName(
+        'alert_list_msg_con'
+      )[0]
       var spanCurr = document.getElementById('curr')
-      var eachHeight = +getComputedStyle(alert_list_msg_con.children[0], null).height.slice(0, -2)
+      var eachHeight = +getComputedStyle(
+        alert_list_msg_con.children[0],
+        null
+      ).height.slice(0, -2)
 
       setIndex()
 
@@ -209,7 +214,9 @@
 
                 var sMoveLenth = event.screenY - sMoveStart
                 var temp = currTop + sMoveLenth
-                var resultIndex = Math.round(-((temp - eachHeight) / eachHeight))
+                var resultIndex = Math.round(
+                  -((temp - eachHeight) / eachHeight)
+                )
 
                 alert_list_msg_con.style.top = temp + 'px'
               }
@@ -221,7 +228,8 @@
 
               setIndex()
               var conIndex = spanCurr.innerText
-              alert_list_msg_con.style.top = (-(conIndex * eachHeight) + eachHeight) + 'px'
+              alert_list_msg_con.style.top =
+                -(conIndex * eachHeight) + eachHeight + 'px'
               content = alert_list_msg_con.children[conIndex].innerText
             }
           }

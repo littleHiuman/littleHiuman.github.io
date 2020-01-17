@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <title>css3实现 菜单栏选中时的过渡效果</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    ul {
-      height: 40px;
-      position: relative;
-      line-height: 44px;
-    }
-
-    ul li {
-      width: 16.66666%;
-      height: 100%;
-      float: left;
-      color: #999;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    ul .bar {
-      width: 16.66666%;
-      height: 3px;
-      line-height: 0;
-      position: absolute;
-      left: 0;
-      bottom: 1px;
-      transform: translateX(0%);
-      transition: 0.2s linear;
-      -webkit-transition: 0.2s linear;
-    }
-
-    ul .bar i {
-      width: 70%;
-      height: 3px;
-      display: inline-block;
-    }
-
-    .active {
-      color: darkgreen;
-    }
-
-    .active_bg {
-      background-color: darkgreen;
-    }
-  </style>
-
-</head>
-
-<body>
-  <ul class="menus">
-    <li class="active">菜单1</li>
-    <li>菜单2</li>
-    <li>菜单3</li>
-    <li>菜单4</li>
-    <li>菜单5</li>
-    <li>菜单6</li>
-    <li class="bar"><i class="active_bg"></i></li>
-  </ul>
-  <script>
-    var menus = document.querySelector('.menus');
-    var children = menus.children;
-    for (var i = 0; i < children.length; i++) {
-      children[i]['data-index'] = i;
-    }
-    menus.onclick = function (event) {
-      event = event || window.event;
-      if (event.target.tagName === 'LI') {
-        for (var i = 0; i < children.length; i++) {
-          children[i].className = children[i].className.replace(/active/, '')
-        }
-        event.target.className += ' active';
-        children[children.length - 1].style['-webkit-transform'] = 'translateX(' + (event.target['data-index'] * 100) + '%)'
+  <head>
+    <meta charset="UTF-8">
+    <title>css3实现 菜单栏选中时的过渡效果</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
-    }
-  </script>
-</body>
 
+      ul {
+        height: 40px;
+        position: relative;
+        line-height: 44px;
+      }
+
+      ul li {
+        width: 16.66666%;
+        height: 100%;
+        float: left;
+        color: #999;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      ul .bar {
+        width: 16.66666%;
+        height: 3px;
+        line-height: 0;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        transform: translateX(0%);
+        transition: 0.2s linear;
+        -webkit-transition: 0.2s linear;
+      }
+
+      ul .bar i {
+        width: 70%;
+        height: 3px;
+        display: inline-block;
+      }
+
+      .active {
+        color: darkgreen;
+      }
+
+      .active_bg {
+        background-color: darkgreen;
+      }
+    </style>
+
+  </head>
+  <body>
+    <ul class="menus">
+      <li class="active">菜单1</li>
+      <li>菜单2</li>
+      <li>菜单3</li>
+      <li>菜单4</li>
+      <li>菜单5</li>
+      <li>菜单6</li>
+      <li class="bar"><i class="active_bg"></i></li>
+    </ul>
+    <script>
+      var menus = document.querySelector('.menus');
+      var children = menus.children;
+      for (var i = 0; i < children.length; i++) {
+        children[i]['data-index'] = i;
+      }
+      menus.onclick = function (event) {
+        event = event || window.event;
+        if (event.target.tagName === 'LI') {
+          for (var i = 0; i < children.length; i++) {
+            children[i].className = children[i].className.replace(/active/, '')
+          }
+          event.target.className += ' active';
+          children[children.length - 1].style['-webkit-transform'] = 'translateX(' + (event.target['data-index'] * 100) + '%)'
+        }
+      }
+    </script>
+  </body>
 </html

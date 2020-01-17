@@ -1,29 +1,22 @@
 <template>
   <div class="hm-part-lists">
-
-    <div class="slot-wrap"
-         :class="{fixed: fixedTitle && show}">
+    <div class="slot-wrap" :class="{fixed: fixedTitle && show}">
       <slot></slot>
     </div>
 
-    <div class="hm-part-fixed"
-         :class="[hmPartFixedCustom]"
-         v-if="datas.length"
-         :style="fixedTopStyle">{{datas[actived].name}}</div>
+    <div
+      class="hm-part-fixed"
+      :class="[hmPartFixedCustom]"
+      v-if="datas.length"
+      :style="fixedTopStyle"
+    >{{datas[actived].name}}</div>
 
-    <ul class="hm-part-wrap"
-        :class="[hmPartWrapCustom]"
-        v-if="datas.length">
-      <li v-for="(item,i) in datas"
-          :class="[hmPartList]"
-          :key="i">
+    <ul class="hm-part-wrap" :class="[hmPartWrapCustom]" v-if="datas.length">
+      <li v-for="(item,i) in datas" :class="[hmPartList]" :key="i">
         <div :class="[hmPartTitle]">{{item.name}}</div>
-        <div :class="[hmPartContent]"
-             v-for="(obj,j) in item.data"
-             :key="j">{{obj}}</div>
+        <div :class="[hmPartContent]" v-for="(obj,j) in item.data" :key="j">{{obj}}</div>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -32,55 +25,55 @@ export default {
   props: {
     fixedTitle: {
       type: Boolean,
-      dafault: true,
+      dafault: true
     },
     datas: {
       type: Array,
       default: () => [
         {
           name: "A",
-          data: [1, 2, 3, 4, 5],
+          data: [1, 2, 3, 4, 5]
         },
         {
           name: "B",
-          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         {
           name: "C",
-          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         {
           name: "D",
-          data: [1, 2, 3, 4, 5],
-        },
+          data: [1, 2, 3, 4, 5]
+        }
       ],
       validator: function(value) {
         if (!value.length) {
           return false;
         }
         return true;
-      },
+      }
     },
     hmPartFixedCustom: {
       type: String,
-      default: () => "hm-part-fixed-custom",
+      default: () => "hm-part-fixed-custom"
     },
     hmPartWrapCustom: {
       type: String,
-      default: () => "hm-part-wrap-custom",
+      default: () => "hm-part-wrap-custom"
     },
     hmPartList: {
       type: String,
-      default: () => "hm-part-list",
+      default: () => "hm-part-list"
     },
     hmPartContent: {
       type: String,
-      default: () => "hm-part-content",
+      default: () => "hm-part-content"
     },
     hmPartTitle: {
       type: String,
-      default: () => "hm-part-title",
-    },
+      default: () => "hm-part-title"
+    }
   },
   data() {
     return {
@@ -88,7 +81,7 @@ export default {
       actived: 0,
       fixedTopStyle: "top: -10000px",
       show: false,
-      slotWrapTopTemp: 0,
+      slotWrapTopTemp: 0
     };
   },
   watch: {
@@ -99,7 +92,7 @@ export default {
     fixedTitle(cur, old) {
       this.toTop();
       this.init();
-    },
+    }
   },
   mounted() {
     this.toTop();
@@ -213,8 +206,8 @@ export default {
           "px;overflow: hidden;";
       }
       this.fixedTopStyle = style;
-    },
-  },
+    }
+  }
 };
 </script>
 

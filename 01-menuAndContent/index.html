@@ -1,93 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>首页</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
-	<div class="container">
-		<div class="part">
-			<h2>PART</h2>
-			<ul class="menu">
-				<li class="cur"><a href="javascript:;">菜单1</a></li>
-				<li><a href="javascript:;">菜单2</a></li>
-				<div class="clear"></div>
-			</ul>
-			<div class="content">
-				<ul class="list">
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<li>
-						<div><img src="pic.png"></div>
-						<h3>小标题</h3>
-						<p>内容1</p>
-						<p>内容2</p>
-					</li>
-					<div class="clear"></div>
-				</ul>
-				<ul class="list">
-					dfsafasd
-				</ul>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		window.onload = function(){
-			var menulist = document.getElementsByClassName('menu')[0].getElementsByTagName('li');
-			var contentlist = document.getElementsByClassName('content')[0].getElementsByClassName('list');
-			for(var i=0;i<menulist.length;i++){
-				menulist[i].onclick = (function(i){
+  <head>
+    <meta charset="utf-8" />
+    <title>【布局】菜单栏和内容以及它的改进版</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="part">
+        <h2>PART</h2>
+        <ul class="menu">
+          <li class="cur"><a href="javascript:;">菜单1</a></li>
+          <li><a href="javascript:;">菜单2</a></li>
+          <div class="clear"></div>
+        </ul>
+        <div class="content">
+          <ul class="list">
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <li>
+              <div><img src="pic.png" /></div>
+              <h3>小标题</h3>
+              <p>内容1</p>
+              <p>内容2</p>
+            </li>
+            <div class="clear"></div>
+          </ul>
+          <ul class="list">
+            dfsafasd
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function() {
+        var menulist = document
+          .getElementsByClassName('menu')[0]
+          .getElementsByTagName('li')
+        var contentlist = document
+          .getElementsByClassName('content')[0]
+          .getElementsByClassName('list')
+        for (var i = 0; i < menulist.length; i++) {
+          menulist[i].onclick = (function(i) {
+            return function() {
+              if (this.className != 'cur') {
+                this.className = 'cur'
+              }
 
-					return function(){
-						
-						if(this.className!='cur'){
-							this.className="cur";
-						}
+              for (var a = 0; a < menulist.length; a++) {
+                if (a != i) {
+                  menulist[a].className = ''
+                }
+              }
 
-						for(var a=0;a<menulist.length;a++){
-							if(a!=i){
-								menulist[a].className = '';
-							}
-						}
+              changeContent()
+            }
+          })(i)
+        }
 
-						changeContent()
-
-					}
-					
-				
-				})(i);
-			}
-
-			changeContent()
-			function changeContent () {
-				
-				for(var x= 0;x<menulist.length;x++){
-					if(menulist[x].className=='cur'){
-						contentlist[x].style.display = 'block';
-					}else{
-						contentlist[x].style.display = 'none';
-					}
-				}
-
-			}
-		}
-	</script>
-</body>
+        changeContent()
+        function changeContent() {
+          for (var x = 0; x < menulist.length; x++) {
+            if (menulist[x].className == 'cur') {
+              contentlist[x].style.display = 'block'
+            } else {
+              contentlist[x].style.display = 'none'
+            }
+          }
+        }
+      }
+    </script>
+  </body>
 </html>

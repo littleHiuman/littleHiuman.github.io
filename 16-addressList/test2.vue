@@ -10,11 +10,11 @@
 import hmPartLists from "./hmPartLists2";
 export default {
   components: {
-    "part-lists": hmPartLists,
+    "part-lists": hmPartLists
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
 

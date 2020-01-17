@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>LoadMore</title>
+    <title>加载更多</title>
     <style>
       li {
         list-style: none;
@@ -86,12 +86,12 @@
           </li>`
         }
         wrapper.innerHTML += str
-        fn&&fn()
+        fn && fn()
       }
       getData()
 
       // 加载更多
-      loadMore('wrapper', getData);
+      loadMore('wrapper', getData)
     </script>
   </body>
 </html>

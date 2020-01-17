@@ -2,9 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>css3实现鼠标移入图片划过一束光闪过效果</title>
     <style>
       .img {
         display: block;
@@ -27,14 +25,6 @@
           rgba(255, 255, 255, 0.2) 50%,
           rgba(255, 255, 255, 0) 100%
         );
-        background: -webkit-gradient(
-          linear,
-          left top,
-          right top,
-          color-stop(0%, rgba(255, 255, 255, 0)),
-          color-stop(50%, rgba(255, 255, 255, 0.2)),
-          color-stop(100%, rgba(255, 255, 255, 0))
-        );
         background: -webkit-linear-gradient(
           left,
           rgba(255, 255, 255, 0) 0,
@@ -47,6 +37,7 @@
           rgba(255, 255, 255, 0.2) 50%,
           rgba(255, 255, 255, 0) 100%
         );
+        transform: skewX(-25deg);
         -webkit-transform: skewX(-25deg);
         -moz-transform: skewX(-25deg);
       }
@@ -58,7 +49,10 @@
   </head>
   <body>
     <a href="#" class="img">
-      <img src="http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d53f8794a4c27d1e8ff07fe61fd5ad6eddc43839.jpg" width="800"/>
+      <img
+        src="http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d53f8794a4c27d1e8ff07fe61fd5ad6eddc43839.jpg"
+        width="800"
+      />
     </a>
   </body>
 </html>

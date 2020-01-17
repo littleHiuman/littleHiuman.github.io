@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./index3.css">
+    <title>选项卡效果的菜单栏</title>
+    <link rel="stylesheet" href="./index3.css" />
   </head>
   <body>
     <div id="wrap">
@@ -28,47 +28,31 @@
     </div>
 
     <script>
-      var oLi = document.querySelectorAll('li')
+      var menus = document.querySelector('.title')
       var oCon = document.querySelectorAll('.con')
-      var index
+      var lis = menus.children
+      for (var i = 0; i < lis.length; i++) {
+        lis[i]['data-index'] = i
+        oCon[i].style.display = 'none'
+      }
       window.onload = onloadCon()
       function onloadCon() {
-        for (var i = 0; i < oLi.length; i++) {
-          oCon[i].style.display = 'none'
-          if (hasClass(oLi[i], 'active') == true) {
-            index = i
+        for (var i = 0; i < lis.length; i++) {
+          if (hasClass(lis[i], 'active')) {
             oCon[i].style.display = 'block'
           }
         }
       }
 
-      oLi[0].onclick = function() {
-        addClass(oLi[0], 'active')
-        removeClass(oLi[1], 'active')
-        removeClass(oLi[2], 'active')
-        removeClass(oLi[3], 'active')
-        onloadCon()
-      }
-      oLi[1].onclick = function() {
-        addClass(oLi[1], 'active')
-        removeClass(oLi[0], 'active')
-        removeClass(oLi[2], 'active')
-        removeClass(oLi[3], 'active')
-        onloadCon()
-      }
-      oLi[2].onclick = function() {
-        addClass(oLi[2], 'active')
-        removeClass(oLi[0], 'active')
-        removeClass(oLi[1], 'active')
-        removeClass(oLi[3], 'active')
-        onloadCon()
-      }
-      oLi[3].onclick = function() {
-        addClass(oLi[3], 'active')
-        removeClass(oLi[0], 'active')
-        removeClass(oLi[1], 'active')
-        removeClass(oLi[2], 'active')
-        onloadCon()
+      menus.onclick = function(event) {
+        if (event.target.tagName === 'LI') {
+          for (var i = 0; i < lis.length; i++) {
+            removeClass(lis[i], 'active')
+            oCon[i].style.display = 'none'
+          }
+          addClass(lis[event.target['data-index']], 'active')
+          oCon[event.target['data-index']].style.display = 'block'
+        }
       }
 
       function hasClass(elem, cls) {

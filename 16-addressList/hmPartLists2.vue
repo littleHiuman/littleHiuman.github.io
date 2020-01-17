@@ -1,25 +1,17 @@
 <template>
   <div class="hm-part-lists">
-
-    <div class="slot-wrap"
-         :class="{fixed: fixedTitle}">
+    <div class="slot-wrap" :class="{fixed: fixedTitle}">
       <slot></slot>
     </div>
 
-    <div class="hm-part-fixed"
-         v-if="datas.length"
-         :style="fixedTopStyle">{{datas[actived].name}}</div>
+    <div class="hm-part-fixed" v-if="datas.length" :style="fixedTopStyle">{{datas[actived].name}}</div>
 
-    <ul class="hm-part-wrap"
-        v-if="datas.length">
-      <li v-for="(item,i) in datas"
-          :key="i">
+    <ul class="hm-part-wrap" v-if="datas.length">
+      <li v-for="(item,i) in datas" :key="i">
         <div class="hm-part-title">{{item.name}}</div>
-        <div v-for="(obj,j) in item.data"
-             :key="j">{{obj}}</div>
+        <div v-for="(obj,j) in item.data" :key="j">{{obj}}</div>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -28,41 +20,41 @@ export default {
   props: {
     fixedTitle: {
       type: Boolean,
-      dafault: true,
+      dafault: true
     },
     datas: {
       type: Array,
       default: () => [
         {
           name: "A",
-          data: [1, 2, 3, 4, 5],
+          data: [1, 2, 3, 4, 5]
         },
         {
           name: "B",
-          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         {
           name: "C",
-          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         {
           name: "D",
-          data: [1, 2, 3, 4, 5],
-        },
+          data: [1, 2, 3, 4, 5]
+        }
       ],
       validator: function(value) {
         if (!value.length) {
           return false;
         }
         return true;
-      },
-    },
+      }
+    }
   },
   data() {
     return {
       top: [],
       actived: 0,
-      fixedTopStyle: "top: -10000px",
+      fixedTopStyle: "top: -10000px"
     };
   },
   watch: {
@@ -77,7 +69,7 @@ export default {
         document.documentElement.scrollTop = 0;
       }, 100);
       this.init();
-    },
+    }
   },
   mounted() {
     setTimeout(() => {
@@ -160,8 +152,8 @@ export default {
         style = "top: " + (calc - titleHeight) + "px;";
       }
       this.fixedTopStyle = style;
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,21 +1,13 @@
 <template>
-  <div class="hm-part-lists"
-       @scroll="scrollHandle">
+  <div class="hm-part-lists" @scroll="scrollHandle">
+    <div class="hm-part-fixed" v-if="datas.length" :style="fixedTopStyle">{{datas[actived].name}}</div>
 
-    <div class="hm-part-fixed"
-         v-if="datas.length"
-         :style="fixedTopStyle">{{datas[actived].name}}</div>
-
-    <ul class="hm-part-wrap"
-        v-if="datas.length">
-      <li v-for="(item,i) in datas"
-          :key="i">
+    <ul class="hm-part-wrap" v-if="datas.length">
+      <li v-for="(item,i) in datas" :key="i">
         <div class="hm-part-title">{{item.name}}</div>
-        <div v-for="(obj,j) in item.data"
-             :key="j">{{obj}}</div>
+        <div v-for="(obj,j) in item.data" :key="j">{{obj}}</div>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -27,22 +19,22 @@ export default {
       default: () => [
         {
           name: "A",
-          data: [1, 2, 3, 4, 5],
-        },
+          data: [1, 2, 3, 4, 5]
+        }
       ],
       validator: function(value) {
         if (!value.length) {
           return false;
         }
         return true;
-      },
-    },
+      }
+    }
   },
   data() {
     return {
       top: [],
       actived: 0,
-      fixedTopStyle: "",
+      fixedTopStyle: ""
     };
   },
   mounted() {
@@ -103,8 +95,8 @@ export default {
         style = "top: " + -(height - calc - partLists.offsetTop) + "px;";
       }
       this.fixedTopStyle = style;
-    },
-  },
+    }
+  }
 };
 </script>
 
