@@ -25,7 +25,7 @@
 ---
 #### CSSloading图（10-Loading）
 #### JavaScript实现日历选择器 datePicker（09-DatePicker）
-#### canvas写的广州地铁图（02-GZsubway-canvas）
+#### canvas写的广州地铁图（02-GZsubway-canvas）另附：https://github.com/littleHiuman/GZsubway-canvas
 #### 菜单栏和内容以及它的改进版（01-menuAndContent）
 #### 点击图片查看大图效果（11-ViewPicture）
 #### 加载完页面后，跳转至页面某个位置（12-JumpTo）
