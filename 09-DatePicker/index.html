@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>日历选择</title>
+    <style>
+      input {
+        height: 30px;
+        outline: none;
+      }
+
+      .fixed_bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .fixed_bg .alert {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        overflow: hidden;
+        width: 250px;
+        height: 160px;
+        margin-top: -75px;
+        margin-left: -125px;
+        border-radius: 10px;
+        background: #fafafa;
+      }
+
+      .fixed_bg #curr {
+        display: none;
+      }
+
+      .fixed_bg .alert_title {
+        line-height: 40px;
+        position: relative;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        color: #fff;
+        background: #387bf0;
+      }
+
+      .fixed_bg .alert_sure,
+      .fixed_bg .alert_close {
+        cursor: pointer;
+        position: absolute;
+      }
+
+      .fixed_bg .alert_sure {
+        right: 10px;
+      }
+
+      .fixed_bg .alert_close {
+        left: 10px;
+        width: 20px;
+      }
+
+      .fixed_bg .alert_con {
+        position: relative;
+        width: 100%;
+        height: 120px;
+      }
+
+      .fixed_bg .alert_list_wrap {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 40px;
+        height: 100px;
+        margin-left: -20px;
+        overflow: hidden;
+      }
+
+      .fixed_bg .alert_list_curr_top,
+      .fixed_bg .alert_list_curr_bottom {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: red;
+      }
+
+      .fixed_bg .alert_list_curr_top {
+        top: 33px;
+      }
+      .fixed_bg .alert_list_curr_bottom {
+        top: 67px;
+      }
+
+      .fixed_bg .alert_list_msg_con {
+        position: absolute;
+        top: 34px;
+        width: 100%;
+      }
+
+      .fixed_bg .alert_list_msg_con a {
+        font-weight: bold;
+        line-height: 34px;
+        display: block;
+        width: 100%;
+        height: 34px;
+        text-align: center;
+        transition: top 2s;
+      }
+
+      .fixed_bg .alert_list_msg_descr {
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 100%;
+        height: 100%;
+        background: -webkit-gradient(
+          linear,
+          0% 100%,
+          0% 0%,
+          from(rgb(235, 235, 235)),
+          color-stop(0.35, rgba(235, 235, 235, 0)),
+          color-stop(0.65, rgba(235, 235, 235, 0)),
+          to(rgb(235, 235, 235))
+        )
+      }
+    </style>
+  </head>
+  <body onselectstart="return false;" style="-moz-user-select:none;">
+    <input class="choose" type="text" placeholder="请选择" />
+
+    <div class="fixed_bg">
+      <div class="alert">
+        <span id="curr"></span>
+        <div class="alert_title">
+          <span class="alert_close">x</span>
+          <span>请选择</span>
+          <span class="alert_sure">确定</span>
+        </div>
+        <div class="alert_con">
+          <div class="alert_list_wrap">
+            <div class="alert_list_msg_con">
+              <a>1</a>
+              <a>2</a>
+              <a>3</a>
+              <a>4</a>
+              <a>5</a>
+              <a>6</a>
+              <a>7</a>
+              <a>8</a>
+            </div>
+            <div class="alert_list_msg_descr"></div>
+            <div class="alert_list_curr_top"></div>
+            <div class="alert_list_curr_bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var content = ''
+      var oInputGroup = document.getElementsByClassName('choose')
+      var fixed_bg = document.getElementsByClassName('fixed_bg')[0]
+      var alert_close = document.getElementsByClassName('alert_close')[0]
+      var alert_sure = document.getElementsByClassName('alert_sure')[0]
+      var alert_list_msg_con = document.getElementsByClassName('alert_list_msg_con')[0]
+      var spanCurr = document.getElementById('curr')
+      var eachHeight = +getComputedStyle(alert_list_msg_con.children[0], null).height.slice(0, -2)
+
+      setIndex()
+
+      for (var i = 0; i < oInputGroup.length; i++) {
+        oInputGroup[i].onclick = function() {
+          var _this = this
+          fixed_bg.style.display = 'block'
+          eventListen()
+          alert_sure.onclick = function() {
+            fixed_bg.style.display = 'none'
+            setIndex()
+            _this.value = content
+          }
+        }
+      }
+      alert_close.onclick = function() {
+        fixed_bg.style.display = 'none'
+      }
+
+      function setIndex() {
+        var conTop = getComputedStyle(alert_list_msg_con, null).top.slice(0, -2)
+        var conIndex = -((conTop - eachHeight) / eachHeight)
+        spanCurr.innerText = Math.round(conIndex)
+      }
+
+      function eventListen() {
+        var sign = ''
+        var sMoveStart = ''
+
+        window.onmousedown = function(event) {
+          event = event || window.event
+          if (sign == 'mouseup' || sign == '') {
+            sign = 'mousedown'
+            sMoveStart = event.screenY
+
+            window.onmousemove = function(event) {
+              event = event || window.event
+              if (sign == 'mousedown') {
+                var currIndex = +spanCurr.innerText
+                var currTop = -(currIndex * eachHeight) + eachHeight
+
+                var sMoveLenth = event.screenY - sMoveStart
+                var temp = currTop + sMoveLenth
+                var resultIndex = Math.round(-((temp - eachHeight) / eachHeight))
+
+                alert_list_msg_con.style.top = temp + 'px'
+              }
+            }
+          }
+          window.onmouseup = function() {
+            if (sign == 'mousedown') {
+              sign = 'mouseup'
+
+              setIndex()
+              var conIndex = spanCurr.innerText
+              alert_list_msg_con.style.top = (-(conIndex * eachHeight) + eachHeight) + 'px'
+              content = alert_list_msg_con.children[conIndex].innerText
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+
+      .menu {
+        width: 100%;
+        height: 20px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        overflow: hidden;
+        padding: 8px 0;
+      }
+      .menu_con {
+        text-align: center;
+        border-right: 1px solid #ddd;
+        width: 33%;
+        height: 20px;
+        line-height: 20px;
+        float: left;
+        cursor: pointer;
+      }
+      .menu_fon:last-child {
+        border-right: none;
+      }
+      .menu_title {
+        font-size: 14px;
+      }
+
+      .pop_wrap {
+        display: none;
+        position: fixed;
+        top: 37px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        clear: both;
+      }
+
+      .pop_left,
+      .pop_right {
+        position: absolute;
+        height: 150px;
+        overflow: auto;
+      }
+      .pop_left {
+        background: #fff;
+        left: 0;
+        width: 40%;
+      }
+      .pop_right {
+        background: #ddd;
+        left: 40%;
+        width: 60%;
+      }
+      .pop_wrap li {
+        line-height: 30px;
+        padding-left: 20px;
+        border-bottom: 1px solid #eee;
+      }
+      .pop_wrap li.active {
+        color: #6ab494;
+      }
+      .pop_right li.active {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="menu_con menu_type" onclick="showhide(0)">
+        <span class="menu_title">自助餐</span>
+      </div>
+      <div class="menu_con menu_position" onclick="showhide(1)">
+        <span class="menu_title">中山二三路</span>
+      </div>
+      <div class="menu_con menu_sort" onclick="showhide(2)">
+        <span class="menu_title">智能排序</span>
+      </div>
+    </div>
+    <div class="pop_wrap">
+      <ul class="pop_left"></ul>
+      <ul class="pop_right"></ul>
+    </div>
+    <script>
+      var current = ''
+      function showhide(sth) {
+        var data = [
+          {
+            left: ['全部分类', '美食', '电影', '美食', '摄影', '摄影'],
+            right: ['全部', '经济型', '经济型', '经济型', '经济型', '经济型']
+          },
+          {
+            left: ['全部分类', '番禺区', '电影', '美食', '摄影', '摄影'],
+            right: ['全部', '经济型', '经济型', '经济型', '经济型', '经济型']
+          },
+          {
+            left: [
+              '智能排序',
+              '好评优先',
+              '离我最近',
+              '人均最低',
+              '摄影',
+              '摄影'
+            ],
+            right: []
+          }
+        ]
+        var popWrap = document.querySelector('.pop_wrap')
+        var popLeft = document.querySelector('.pop_left')
+        var popRight = document.querySelector('.pop_right')
+        popLeft.innerHTML = setData(data[sth].left)
+        popRight.innerHTML = setData(data[sth].right)
+        if (popWrap.style.display == 'block') {
+          if (sth == current) {
+            popWrap.style.display = 'none'
+          } else {
+            current = sth
+          }
+        } else {
+          current = sth
+          popWrap.style.display = 'block'
+        }
+      }
+      function setData(data) {
+        var str = ''
+        if (data.length) {
+          for (var i = 0; i < data.length; i++) {
+            str += `<li ${i == 0 ? "class='active'" : ''}>${data[i]}</li>`
+          }
+        }
+        return str
+      }
+    </script>
+  </body>
+</html>

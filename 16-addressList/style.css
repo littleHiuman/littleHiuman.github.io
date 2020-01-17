@@ -1,0 +1,54 @@
+.hm-part-lists {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.hm-part-fixed {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  padding-left: 15px;
+  border-bottom: 1px solid navajowhite;
+  background-color: white;
+  line-height: 30px;
+  color: salmon;
+  transform: translateZ(0);
+}
+
+.hm-part-wrap {
+  background-color: navajowhite;
+  overflow-y: auto;
+}
+
+.hm-part-wrap li {
+  border-bottom: 1px solid navajowhite;
+  background-color: white;
+  padding-left: 15px;
+}
+
+.hm-part-wrap li+li {
+  border-top: 1px solid navajowhite;
+  margin-top: 10px;
+}
+
+.hm-part-wrap div+div {
+  border-top: 1px solid navajowhite;
+}
+
+.hm-part-wrap div:not(.hm-part-title) {
+  line-height: 40px;
+}
+
+.hm-part-wrap div.hm-part-title {
+  line-height: 30px;
+  color: salmon;
+}
+
+.slot-wrap {
+  width: 100%;
+  z-index: 2;
+}

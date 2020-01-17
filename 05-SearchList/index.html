@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>搜索列表</title>
+    <style type="text/css">
+      #kw {
+        width: 286px;
+        height: 30px;
+        padding: 0 5px;
+        line-height: 30px;
+        font-size: 16px;
+        outline: none;
+        border: solid #87a900 2px;
+      }
+      #append {
+        width: 296px;
+        border: solid #87a900 2px;
+        border-top: 0;
+        display: none;
+      }
+      .item {
+        padding: 3px 5px;
+        cursor: pointer;
+      }
+      .item:hover {
+        background: #87a900;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <input id="kw" onKeyup="getContent(this);" placeholder="你好" />
+      <div id="append"></div>
+    </div>
+    <script>
+      var data = [
+        '你好，我是Michael',
+        '你是谁',
+        '你最好啦',
+        '你最珍贵',
+        '你是我最好的朋友',
+        '你画我猜',
+        '你是笨蛋',
+        '你懂得',
+        '你为我着迷',
+        '你是我的眼'
+      ]
+
+      var oInput = document.getElementById('kw')
+      var append = document.getElementById('append')
+
+      function getContent(obj) {
+        var kw = obj.value.trim()
+        if (kw == '') {
+          append.style.display = 'none'
+          append.innerHTML = ''
+          return false
+        }
+        var html = ''
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].indexOf(kw) >= 0) {
+            html =
+              html +
+              "<div class='item' onClick='getCon(this);'>" +
+              data[i] +
+              '</div>'
+          }
+        }
+        if (html != '') {
+          append.style.display = 'block'
+          append.innerHTML = html
+        }
+      }
+
+      function getCon(obj) {
+        var value = obj.innerText
+        oInput.value = value
+        append.style.display = 'none'
+        append.innerHTML = ''
+      }
+    </script>
+  </body>
+</html>

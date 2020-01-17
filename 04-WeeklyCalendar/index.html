@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>生成周历</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table td {
+        height: 30px;
+      }
+      #today {
+        color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td id="today"></td>
+        <td id="tomorror"></td>
+        <td id="thirdday"></td>
+        <td id="fourthday"></td>
+        <td id="fifthday"></td>
+        <td id="sixthday"></td>
+        <td id="seventhday"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <script>
+      var showToday = false // 今天显示“周几”还是显示“今日”
+
+      document.getElementById('today').innerText = GetDateStr(0)
+      document.getElementById('tomorror').innerText = GetDateStr(1)
+      document.getElementById('thirdday').innerText = GetDateStr(2)
+      document.getElementById('fourthday').innerText = GetDateStr(3)
+      document.getElementById('fifthday').innerText = GetDateStr(4)
+      document.getElementById('sixthday').innerText = GetDateStr(5)
+      document.getElementById('seventhday').innerText = GetDateStr(6)
+
+      function GetDateStr(Count) {
+        var dd = new Date()
+        dd.setDate(dd.getDate() + Count) //获取Count天后的日期
+        var m = dd.getMonth() + 1 //获取当前月份
+        m = m < 10 ? '0' + m : m
+        var d = dd.getDate() //获取当前月份的日期
+        d = d < 10 ? '0' + d : d
+        var w = dd.getDay() //获取星期几
+        var week
+        switch (w) {
+          case 0:
+            week = '周日'
+            break
+          case 1:
+            week = '周一'
+            break
+          case 2:
+            week = '周二'
+            break
+          case 3:
+            week = '周三'
+            break
+          case 4:
+            week = '周四'
+            break
+          case 5:
+            week = '周五'
+            break
+          case 6:
+            week = '周六'
+            break
+        }
+        if (showToday && Count === 0) {
+          week = '今日'
+        }
+        return m + '/' + d + week
+      }
+    </script>
+  </body>
+</html>

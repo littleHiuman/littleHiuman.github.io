@@ -1,0 +1,55 @@
+/*显示大图*/
+.see-big-photo-wrap{
+  overflow: hidden;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  background: rgba(0, 0, 0, .5);
+  visibility: hidden;
+  position: fixed;
+  z-index: 31;
+}
+.see-big-photo-close{
+  font-size: 30px;
+  color: #aaaaaa;
+  border: 1px solid #eeeeee;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  z-index: 35;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.see-big-photo{
+  height: 100%;
+  z-index: 33;
+  position: absolute;
+  width:100%;
+}
+#seephoto{
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+/*图片列表*/
+.swiper-container-album .swiper-wrapper{
+  overflow: hidden;
+}
+.swiper-container-album .swiper-slide{
+  float: left;
+  width: 150px;
+  height: 150px;
+}
+.width-100{
+  width: 100%;
+}

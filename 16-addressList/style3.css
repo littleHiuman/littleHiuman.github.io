@@ -1,0 +1,56 @@
+.hm-part-lists {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.hm-part-fixed {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  transform: translateZ(0);
+}
+
+.hm-part-fixed-custom {
+  padding-left: 15px;
+  border-bottom: 1px solid navajowhite;
+  background-color: white;
+  line-height: 30px;
+  color: salmon;
+}
+
+.hm-part-wrap {
+  overflow-y: auto;
+}
+
+.hm-part-wrap-custom {
+  background-color: navajowhite;
+}
+
+.hm-part-list {
+  border-bottom: 1px solid navajowhite;
+  background-color: white;
+  padding-left: 15px;
+}
+
+.hm-part-list+.hm-part-list {
+  margin-top: 10px;
+}
+
+.hm-part-content {
+  line-height: 40px;
+  border-top: 1px solid navajowhite;
+}
+
+.hm-part-title {
+  line-height: 30px;
+  color: salmon;
+}
+
+.slot-wrap {
+  width: 100%;
+  z-index: 2;
+}

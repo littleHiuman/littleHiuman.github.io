@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>LoadMore</title>
+    <style>
+      li {
+        list-style: none;
+      }
+      .wrapper {
+        clear: both;
+        overflow: auto;
+      }
+      .list {
+        float: left;
+        width: 30%;
+        margin-right: 1%;
+      }
+      .list img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .list p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>这里是内容</div>
+      <div>因为需要出现滚动条</div>
+    </div>
+    <ul class="wrapper"></ul>
+    <script src="./loadmore.js"></script>
+    <script>
+      var wrapper = document.getElementsByClassName('wrapper')[0]
+      // 假设该方法为请求接口并处理数据的方法
+      function getData(fn) {
+        var data = [
+          {
+            title: '稻香村糕点礼盒1500g',
+            picLink:
+              'https://img10.360buyimg.com/mobilecms/s500x500_jfs/t1/91522/5/7474/211061/5dfc6eb8E6e3087d3/7a63206e3af62f38.jpg'
+          },
+          {
+            title: '【今日必抢】●短款羊羔绒毛呢外套',
+            picLink:
+              'https://img11.360buyimg.com/mobilecms/s500x500_jfs/t1/85374/25/9543/134053/5e11971bE27798478/8723d3268f53d4c7.jpg'
+          },
+          {
+            title: '阿玛尼男士连帽卫衣',
+            picLink:
+              'https://img12.360buyimg.com/mobilecms/s500x500_jfs/t1/98766/5/10145/66170/5e156641Ec77b6f00/6b48e5d9b36df655.jpg'
+          },
+          {
+            title: '稻香村糕点礼盒1500g',
+            picLink:
+              'https://img10.360buyimg.com/mobilecms/s500x500_jfs/t1/91522/5/7474/211061/5dfc6eb8E6e3087d3/7a63206e3af62f38.jpg'
+          },
+          {
+            title: '【今日必抢】●短款羊羔绒毛呢外套',
+            picLink:
+              'https://img11.360buyimg.com/mobilecms/s500x500_jfs/t1/85374/25/9543/134053/5e11971bE27798478/8723d3268f53d4c7.jpg'
+          },
+          {
+            title: '阿玛尼男士连帽卫衣',
+            picLink:
+              'https://img12.360buyimg.com/mobilecms/s500x500_jfs/t1/98766/5/10145/66170/5e156641Ec77b6f00/6b48e5d9b36df655.jpg'
+          }
+        ]
+        var str = ''
+        for (var i = 0; i < data.length; i++) {
+          str += `
+          <li class="list">
+            <img src="${data[i].picLink}" alt="">
+            <p>${data[i].title}</p>
+          </li>`
+        }
+        wrapper.innerHTML += str
+        fn&&fn()
+      }
+      getData()
+
+      // 加载更多
+      loadMore('wrapper', getData);
+    </script>
+  </body>
+</html>

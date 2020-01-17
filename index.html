@@ -1,182 +1,308 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>littleHiuman的个人博客</title>
-	<meta charset="utf-8">
-	<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
-	<style type="text/css">
-		*{ margin: 0;padding: 0;list-style: none;text-decoration: none; }
-		body{ background: #fff;font-family: Arial,"微软雅黑"; }
-		.container{ width: 1000px;margin: 0 auto; }
-		.clear{ clear: both;height: 1px; }
-
-		.container_top{ background: url('banner.jpg') no-repeat;height: 450px;position: relative; }
-		.container_top .intro{ position: absolute;top: 20px;left: 200px; }
-		.container_top .title{ color: rgb(199, 50, 102); }
-		.container_top .message{ font-style: italic;color: rgb(199, 50, 102); }
-
-		.container_center{ background: #eee;overflow: hidden; }
-		.container_center .list{ background: rgb(199, 50, 102);color: #fff;font-weight: bold;height: 40px;line-height: 40px;text-align: center;padding-left: 200px; }
-		.container_center .list li{ float: left;width: 90px; }
-		.container_center .list li:hover{ background: #53ceb1; }
-		.container_center .list a{ display: block;color: #fff; }
-
-		.container_center .content li{ float: left;border: 1px dashed gray;padding: 10px;margin: 8px; }
-		.container_center .content li:nth-child(1){ width: 54%; }
-		.container_center .content li:nth-child(2){ width: 34%; }
-		.container_center .content .intro{ color: gray;font-weight: bold;height: 30px;line-height: 30px; }
-		.container_center .content .view{ line-height: 30px;width: 100%;min-height: 30px;/*max-height: 1200px;*/ }
-		.container_center .content a,.container_center .content .me p{ color: #53ceb1; }
-		.container_center .content p{ line-height: 40px; }
-		.container_center .content .tool{ font-weight: bold; }
-		.container_center .content .tool a{ padding: 0 10px; }
-		.container_center .content .date{ font-size: 16px;font-weight: bold; }
-		.container_center .content .log{ word-wrap:break-word; word-break:normal;/*max-height: 160px;overflow: hidden;*/text-overflow: ellipsis;color: rgb(199, 50, 102); }
-		.container_center .content .msg{ color: #8a63db; }
-		.container_center .content .name{ color: rgb(199, 50, 102);font-weight: bold;display: block;text-align: center; }
-		
-		.line{ height: 10px; }
-		.dashedline{ border: 1px dashed gray;height: 0px;margin: 8px 0; }
-
-		.container_bottom{ width: 100%;height: 40px;line-height: 40px;text-align: center;background: rgb(199, 50, 102);color: #fff;font-weight: bold;margin-top: 20px; }
-
-		.the-shade-wrap{
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			top: 0;
-			left: 0;
-			background: rgba(0,0,0,.5);
-			z-index: 10;
-		}
-		.the-shade{
-			width: 300px;
-			height: 200px;
-			background: #fff;
-			position: fixed;
-			left: 50%;
-			margin-left: -150px;
-			top: 50%;
-			margin-top: -100px;
-			text-align: center;
-		}
-		.the-shade-title{
-			height: 50px;
-			line-height: 50px;
-			font-size: 20px;
-			border-bottom: 1px solid #ddd;
-		}
-	</style>
-</head>
-<body>
-<!-- 	<div class="the-shade-wrap">
-		<div class="the-shade">
-			<p class="the-shade-title">提示</p>
-			<div class="the-shade-con" style="height: 100px;line-height: 100px;">
-				想要前往至 我的简历 页吗
-			</div>
-			<div style="overflow: hidden;border-top: 1px solid #ddd;">
-				<div class="the-shade-cancel" style="float: left;width: 50%;height: 50px;line-height: 50px;">取消</div>
-				<div style="float: left;width: 50%;height: 50px;line-height: 50px;"><a href="./index_resume.html">确定</a></div>
-			</div>
-		</div>
-	</div>
-    	<script type="text/javascript">
-		document.getElementsByClassName('the-shade-cancel')[0].onclick=function(){
-			document.getElementsByClassName('the-shade-wrap')[0].style.display = 'none'
-		}
-	</script> -->
-	<div class="container">
-		<div class="container_top">
-			<div class="intro">
-				<h1 class="title">littleHiuman的个人博客</h1>
-				<p class="message">用来记录我的笔记，搜集的资料等等</p>
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="container_center">
-			<ul class="list">
-<!-- 				<li><a href="javascript:;">首页</a></li>
-				<li><a href="javascript:;">日志</a></li>
-				<li><a href="javascript:;">相册</a></li>
-				<li><a href="javascript:;">其他</a></li>
-				<li><a href="javascript:;">关于我</a></li> -->
-				<div class="clear"></div>
-			</ul>
-			<ul class="content">
-				<li>
-					<div class="intro">日志</div>
-					<div class="line"></div>
-					<div class="view">
-						<div class="infomation">
-							<h2><a href="">菜单栏和内容和它的改进版</a></h2>
-							<p class="date msg">2017-3-9</p>
-							<div class="log">
-								查看网页<a href="./menuAndContent/index.html">点击这里</a><br>
-								效果图：<img style="display:block;width:100%;height:100%;" src="show01.png"/>
+  <head>
+    <title>littleHiuman的个人博客</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container_top">
+        <div class="intro">
+          <h1 class="title">littleHiuman的个人博客</h1>
+          <p class="message">用来记录我的笔记，搜集的资料等等</p>
+          <p class="message">
+            我的技术博客：<a href="https://www.cnblogs.com/hiuman" class="msg"
+              >https://www.cnblogs.com/hiuman</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="container_center">
+        <div class="blogs-content"></div>
+      </div>
+      <div class="container_bottom">
+        ©2017-2020
+      </div>
+      <script>
+        var blogs = [
+          {
+            title: 'my first non-technical log',
+            time: '2017-02-21',
+            content: `(My English is not good,hahahahhh....) I'm happy to make this page, although it just div + css without any javaScript .. Before, I wrote my log on other blog, no one knows me, but sometimes someone copied my log to other blog, without my permission, I also happy, I help others, just a little.`
+          },
+          {
+            title: 'canvas写的广州地铁图',
+            time: '2017-03-06',
+						content: `<div>根据的是百度提供的坐标，canvas的坐标是大的坐标在后面，所以跟实际生活方向相反。所以canvas里的北方在下方，实际生活中北方在上方。 因为根据的是真实坐标，所以跟广州地铁提供的地图不一样。 左侧地图一种写法，右侧地图另一种写法。左侧可以下拉菜单选择线路查看路线，还可以查询站名属于哪个路线；右侧是全地图。</div>
+								求star呀~~~<br>
+								查看项目地址<a href="https://github.com/littleHiuman/GZsubway-canvas">点击这里</a><br>
+								查看效果<a href="./02-GZsubway-canvas/index.html">点击这里</a><br>
+								效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0201.png"/>`
+          },
+          {
+            title: '菜单栏和内容以及它的改进版',
+            time: '2017-03-09',
+            content: `查看网页<a href="./01-menuAndContent/index.html">点击这里</a><br>
+								效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0101.png"/>
 								<div> = = = = = = = = 2017-3-10 = = = = = = =</div>
 								<div>改进了：菜单栏的样式，菜单栏自动更新宽度、响应window窗口大小，菜单栏内元素超出长度隐藏……</div>
-								<div>查看网页<a href="./menuAndContent/index2.html">点击这里</a></div>
-								效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/show02.png"/>
-							</div>
-<!-- 							<div class="tool"><a href="">阅读</a>|<a href="">评论</a></div> -->
-						</div>
-						<div class="dashedline"></div>
+								<div>查看网页<a href="./01-menuAndContent/index2.html">点击这里</a></div>
+								效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0102.png"/>`
+          },
+          {
+            title: 'js生成当前日期起，一周内的日期+周几/今日（生成周历）',
+            time: '2016-09-08',
+            content: `js生成当前日期起，一周内的日期+周几/今日 <a href="./04-WeeklyCalendar/index.html">点击这里</a><br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0401.png"/><img style="display:block;width:100%;height:100%;" src="./graphs/0402.png"/>`
+          },
+          {
+            title: 'js实现输入框搜索提示功能',
+            time: '2016-09-12',
+            content: `<a href="./05-SearchList/index.html">点击这里</a><br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0501.jpg"/>`
+          },
+          {
+            title: 'javascript 实现简单拖拽',
+            time: '2016-09-24',
+            content: `<a href="./06-Dragable/index.html">点击这里</a><br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0601.png"/>
+									（转自：http://www.cnblogs.com/NNUF/archive/2012/04/02/2430132.html）`
+          },
+          {
+            title:
+              ' JavaScript实现多个菜单的显示隐藏（JavaScript实现二级/三级菜单的显示隐藏）',
+            time: '2016-10-12',
+            content: `点击各个菜单（自助餐、中山二三路、智能排序）会显示/隐藏二级菜单（二级菜单可能既有左侧内容也有右侧内容（三级菜单），也可能只有左侧内容）<br>
+									<a href="./07-menus/index.html">点击这里</a><br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0701.png"/>`
+          },
+          {
+            title: 'JavaScript写的轮播图',
+            time: '2016-11-07',
+            content: `<a href="./08-Carousel/index.html">index.html</a><br><a href="./08-Carousel/index-2.html">index-2.html</a><br>
+									区别: 按钮组、左箭头、右箭头的实现是一样的。<br>
+									index.html   通过改变left的值来进行图片轮播，所以布局上有两个外容器<br>
+									index-2.html 通过获取索引来进行图片轮播，布局上只需要一个外容器<br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0801.png"/>`
+          },
+          {
+            title: 'loading图',
+            time: '2017-01-01',
+            content: `<a href="./10-Loading/index.html">index.html</a><br>
+									<a href="./10-Loading/index-2.html">index-2.html</a><br>
+									效果图：
+									<img style="display:block;width:364px;height:200px;" src="./graphs/1001.png"/><br>
+									<img style="display:block;width:128px;height:112px;" src="./graphs/1002.png"/>`
+          },
+          {
+            title: 'JavaScript实现日历选择器 datePicker',
+            time: '2017-01-17',
+            content: `<a href="./08-Carousel/index.html">index.html</a><br>
+									<a href="./08-Carousel/index-2.html">index-2.html</a><br>
+									区别: 按钮组、左箭头、右箭头的实现是一样的。<br>
+									index.html   通过改变left的值来进行图片轮播，所以布局上有两个外容器<br>
+									index-2.html 通过获取索引来进行图片轮播，布局上只需要一个外容器<br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/0901.png"/>`
+          },
+          {
+            title: '点击图片查看大图效果',
+            time: '2017-08-29',
+            content: `<a href="./11-ViewPicture/index.html">index.html</a><br>
+									需要更多功能的话推荐：https://www.npmjs.com/package/vue-photoswipe<br>
+									效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/1101.png"/>`
+          },
+          {
+            title: '加载完页面后，跳转至页面某个位置',
+            time: '2017-09-05',
+            content: `进入页面就跳转至某个位置。跳转过程中，如果触发了鼠标滚动事件，则取消跳转事件。<br>
+									只需要给某个位置的元素加上id为guidance-grade即可。
+									<a href="./12-JumpTo/index.html">index.html</a><br>`
+          },
+          {
+            title: 'LoadMore加载更多',
+            time: '2017-09-05',
+            content: `<a href="./13-LoadMore/index.html">index.html</a><br>
+									使用方法：loadMore('wrapper', getData);<br>
+									其中，wrapper是容器的类名，getData是请求接口的函数`
+          },
+          {
+            title: 'AlertMsg提示框',
+            time: '2017-09-05',
+            content: `
+							使用方法：<br>
+							<br>
+							<code>
+							// 引入<br>
+							import alertMsg from './ssbAlert.vue'<br>
+							<br>
+							// 注册<br>
+							components: {<br>
+								<span class="tab"></span><span class="tab"></span>alertMsg<br>
+							}<br>
+							<br>
+							// 初始化数据<br>
+							data () {<br>
+								<span class="tab"></span>return {<br>
+									<span class="tab"></span><span class="tab"></span>alertsth: {<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>alertMsgKnowit: false,<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>content: '测试222', // content可以加标签<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>// autoHide: false, //是否自动隐藏，选填。<br>
+									<span class="tab"></span><span class="tab"></span>}<br>
+									<span class="tab"></span>}<br>
+							}<br>
+							<br>
+							// 定义组件。（自行去掉空格）<br>
+							< alertMsg :alertMsg="alertsth">< / alertMsg><br>
+							<br>
+							// 使用组件<br>
+							this.alertsth.alertMsgKnowit = true // 只需要将该值更改为true即可。<br>
+							</code>
+							`
+          },
+          {
+            title: 'Toast提示框',
+            time: '2017-09-05',
+            content: `
+							相对于AlertToast 较不智能<br>
+							用法如下：<br>
+							<code>// 导入<br>
+							import toast from '../toast.vue'<br>
+							<br>
+							// 注册<br>
+							components: {<br>
+								<span class="tab"></span>toast<br>
+							}<br>
+							<br>
+							// 定义组件（自行把空格去掉）<br>
+							< toast :toast="title">< / toast ><br>
+							<br>
+							// 初始化数据<br>
+							data () {<br>
+								<span class="tab"></span>return {<br>
+									<span class="tab"></span><span class="tab"></span>title: {<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>isToastErrorShow: false, // 错误提示<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>isToastSuccessShow: false,  // 成功提示<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>isToastLoadShow: false, // 加载提示<br>
+										<span class="tab"></span><span class="tab"></span><span class="tab"></span>isToastWaitingShow: false // 等待提示<br>
+										<span class="tab"></span><span class="tab"></span>}<br>
+									<span class="tab"></span>}<br>
+							}<br>
+							<br>
+							// 使用组件<br>
+							this.title.isToastErrorShow = !this.title.isToastErrorShow // 将需要使用的提示框的显示与否 取反<br>
+							this.title.toastText = '金额输入不正确' // 提示框内的内容<br>
+							setTimeout(() => { // 何时消失<br>
+								<span class="tab"></span>this.title.isToastErrorShow = !this.title.isToastErrorShow<br>
+							}, 2000)<br>
+							</code>
+						`
+          },
+          {
+            title: 'addressList通讯录',
+            time: '2019-03-27',
+						content: `
+							效果图：<img style="display:block;width:300px;height:100%;" src="./graphs/1601.png"/>
+							使用该组件的前提<br>
+							样式中要有：<br>
+							<code>
+							* {<br>
+								<span class="tab"></span>box-sizing: border-box;<br>
+								<span class="tab"></span>margin: 0;<br>
+								<span class="tab"></span>padding: 0;<br>
+								<span class="tab"></span>list-style-type: none;<br>
+							}<br>
+							</code>
+							<br>
+							hmPartLists.vue 的例子在 test.vue<br>
+							hmPartLists2.vue 的例子在 test2.vue<br>
+							hmPartLists3.vue 的例子在 test3.vue<br>
+							<br>
+							三者之间的区别：<br>
+							<br>
+							1. hmPartLists的容器是固定高度的。<br>
+								hmPartLists2、hmPartLists3的容器不定高。<br>
+								<br>
+							2. hmPartLists2可以将标题传入slot，另外还有固定标题/不固定标题的选项。 （不支持组件外的标题）<br>
+								hmPartLists的标题写在组件外。<br>
+								hmPartLists3二者都可以实现，**PS** 组件外的标题不能被固定。<br>
+								<br>
+							3. hmPartLists有下一个标题把上一个标题往上推的效果。<br>
+								hmPartLists2只有在固定标题的时候有这个效果，不固定标题的时候(fixedTitle为false时)没有往上推的效果。<br>
+								hmPartLists3有下一个标题把上一个标题盖住的效果。<br>
+								<br>
+							4. hmPartLists3已将css改成可配置。<br>
+						`
+          },
+          {
+            title: '其他内容(横屏问题、判断页面是否属于顶部、判断浏览器）',
+            time: '2017-09-05',
+            content: `
+									### 横屏问题<br>
+									<code>
+									window.addEventListener('orientationchange', function(event){<br>
+										<span class="tab"></span>if( window.orientation == 90 || window.orientation == -90 ) {<br>
+											<span class="tab"></span><span class="tab"></span>toastTIP.alert('请不要转为横屏');<br>
+											<span class="tab"></span>}<br>
+									});<br>
+									</code>
+									<br>
+									### 判断页面是否属于顶部<br>
+									<code>
+									if ($(window).scrollTop()) {<br>
+										<span class="tab"></span>if (top > 0){<br>
+											<span class="tab"></span><span class="tab"></span>$('.header').addClass('under-shadow')<br>
+											<span class="tab"></span>} else {<br>
+												<span class="tab"></span><span class="tab"></span>$('.header').removeClass('under-shadow')<br>
+												<span class="tab"></span>}<br>
+									}<br>
+									<br>
+									$(window).scroll(function () {<br>
+										<span class="tab"></span>var top = $(window).scrollTop()<br>
+										<span class="tab"></span>if (top > 0){<br>
+											<span class="tab"></span><span class="tab"></span>$('.header').addClass('under-shadow')<br>
+											<span class="tab"></span>} else {<br>
+												<span class="tab"></span><span class="tab"></span>$('.header').removeClass('under-shadow')<br>
+												<span class="tab"></span>}<br>
+									})<br>
+									</code>
+									<br>
+									### 判断浏览器<br>
+									<code>
+									var browser=navigator.appName<br>
+									var b_version=navigator.appVersion<br>
+									var version=b_version.split(";");<br>
+									var trim_Version=version[1].replace(/[ ]/g,"");<br>
+									if(browser=="Microsoft Internet Explorer"){<br>
+										<span class="tab"></span>if (trim_Version=="MSIE6.0" || trim_Version=="MSIE7.0" || trim_Version=="MSIE8.0"){<br>
+											<span class="tab"></span><span class="tab"></span>alert("您当前IE版本过低")<br>
+											<span class="tab"></span>}<br>
+									}<br>
+									</code>
+								`
+          }
+        ]
+        // 排序
+        blogs = blogs.sort((a, b) => {
+          var aDay = new Date(a.time).getTime()
+          var bDay = new Date(b.time).getTime()
+          return aDay - bDay
+        })
+        // 渲染页面
+        var str = ''
+        for (var i = blogs.length - 1; i >= 0; i--) {
+          str += `<div class="view">
+				<div class="infomation">
+					<h2 class="title">${blogs[i].title}</h2>
+					<p class="date msg">${blogs[i].time}</p>
+					<div class="log">
+						${blogs[i].content}
 					</div>
-					<div class="view">
-						<div class="infomation">
-							<h2><a href="">canvas写的广州地铁图</a></h2>
-							<p class="date msg">2017-3-6</p>
-							<div class="log">
-								<div>根据的是百度提供的坐标，canvas的坐标是大的坐标在后面，所以跟实际生活方向相反。所以canvas里的北方在下方，实际生活中北方在上方。 因为根据的是真实坐标，所以跟广州地铁提供的地图不一样。 左侧地图一种写法，右侧地图另一种写法。左侧可以下拉菜单选择线路查看路线，还可以查询站名属于哪个路线；右侧是全地图。</div>
-								查看网页<a href="https://github.com/littleHiuman/GZsubway-canvas">点击这里</a><br>
-								效果图：<img style="display:block;width:100%;height:100%;" src="./graphs/subway.png"/>
-							</div>
-<!-- 							<div class="tool"><a href="">阅读</a>|<a href="">评论</a></div> -->
-						</div>
-						<div class="dashedline"></div>
-					</div>
-					<div class="view">
-						<div class="infomation">
-							<h2><a href="">my first log</a></h2>
-							<p class="date msg">2017-2-21</p>
-							<p class="log">(My English is not good,hahahahhh....) I'm happy to make this page, although it just div + css without any javaScript .. Before, I wrote my log on other blog, no one knows me, but sometimes someone copied my log to other blog, without my permission, I also happy, I help others, just a little.</p>
-<!-- 							<div class="tool"><a href="">阅读</a>|<a href="">评论</a></div> -->
-						</div>
-						<div class="dashedline"></div>
-					</div>
-<!-- 					<a class="msg" href="" style="font-size: 14px;text-align: right;display: block;padding-right: 10px;">更多日志</a> -->
-				</li>
-				<li>
-					<div class="intro">关于我</div>
-					<div class="line"></div>
-					<div class="view">
-						<div class="me">
-							<img style="width: 140px;display: block;margin: 0 auto;border: 1px dashed gray;" src="hiuman.jpg" alt="myPic">
-							<span class="name">littleHiuman</span>
-							<div class="dashedline"></div>
-							<p>Think：<span class="msg">Study hard and make progress.</span></p>
-							<p>我的技术博客：<a href="http://hiuman.iteye.com/" class="msg">http://hiuman.iteye.com/</a></p>
-<!-- 							<p>我的日常博客：<a href="http://kimjaejooung.blog.163.com/" class="msg">http://kimjaejooung.blog.163.com/</a></p>
-							<p>今日访问人数：<span class="msg"></span></p>
-							<p>总访问人数：<span class="msg"></span></p>
-							<p>最后登录：<span class="msg">2017-2-21</span></p> -->
-						</div>
-					</div>
-				</li>
-				<div class="clear"></div>
-			</ul>
-		</div>
-		<div class="container_bottom">
-			©2017-2017
-		</div>
-
-	</div>
-	<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
-	<script type="text/javascript">
-		window.onload = function(){
-			console.log("ip："+returnCitySN["cip"]+'，地区：'+returnCitySN["cname"]+"，来源："+(document.referrer==""?"未知":document.referrer))
-		}
-	</script>-->
-</body>
+				</div>
+			</div>`
+        }
+        document.getElementsByClassName('blogs-content')[0].innerHTML = str
+      </script>
+    </div>
+  </body>
 </html>
