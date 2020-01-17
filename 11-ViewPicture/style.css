@@ -1,4 +1,3 @@
-/*显示大图*/
 .see-big-photo-wrap{
   overflow: hidden;
   width:100%;
@@ -41,7 +40,6 @@
   display: block;
 }
 
-/*图片列表*/
 .swiper-container-album .swiper-wrapper{
   overflow: hidden;
 }

@@ -40,26 +40,17 @@
     .sk-fading-circle .sk-circle10 { transform: rotate(270deg);}
     .sk-fading-circle .sk-circle11 { transform: rotate(300deg);}
     .sk-fading-circle .sk-circle12 { transform: rotate(330deg);}
-    -webkit-keyframes sk-circleFadeDelay {
-        0%{opacity: 1;}
-            25%{opacity: 0.75;}
-                50%{opacity: 0.5;}
-                    75%{opacity: 0.4;}
-                        100%{opacity: 0.3;}
-    }
 
     @keyframes sk-circleFadeDelay {
         0%{opacity: 1;}
-            25%{opacity: 0.75;}
-                50%{opacity: 0.5;}
-                    75%{opacity: 0.4;}
-                        100%{opacity: .3;}
-
+        25%{opacity: 0.75;}
+        50%{opacity: 0.5;}
+        75%{opacity: 0.4;}
+        100%{opacity: 0.3;}
     }
 
     .sk-fading-circle .sk-circle:before {
-        animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
-
+      animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
     }
 
     .sk-fading-circle .sk-circle1:before {animation-delay: -1.1s; }

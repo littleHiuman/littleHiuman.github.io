@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index3.css">
+  </head>
+  <body>
+    <div id="wrap">
+      <ul class="title">
+        <li class="active">产品介绍<i></i></li>
+        <li>产品功能<i></i></li>
+        <li>产品价格<i></i></li>
+        <li>更多服务<i></i></li>
+      </ul>
+      <div class="con">
+        内容内容内容内容内容内容1
+      </div>
+      <div class="con">
+        内容内容内容内容内容内容2
+      </div>
+      <div class="con">
+        内容内容内容内容内容内容3
+      </div>
+      <div class="con">
+        内容内容内容内容内容内容4
+      </div>
+    </div>
+
+    <script>
+      var oLi = document.querySelectorAll('li')
+      var oCon = document.querySelectorAll('.con')
+      var index
+      window.onload = onloadCon()
+      function onloadCon() {
+        for (var i = 0; i < oLi.length; i++) {
+          oCon[i].style.display = 'none'
+          if (hasClass(oLi[i], 'active') == true) {
+            index = i
+            oCon[i].style.display = 'block'
+          }
+        }
+      }
+
+      oLi[0].onclick = function() {
+        addClass(oLi[0], 'active')
+        removeClass(oLi[1], 'active')
+        removeClass(oLi[2], 'active')
+        removeClass(oLi[3], 'active')
+        onloadCon()
+      }
+      oLi[1].onclick = function() {
+        addClass(oLi[1], 'active')
+        removeClass(oLi[0], 'active')
+        removeClass(oLi[2], 'active')
+        removeClass(oLi[3], 'active')
+        onloadCon()
+      }
+      oLi[2].onclick = function() {
+        addClass(oLi[2], 'active')
+        removeClass(oLi[0], 'active')
+        removeClass(oLi[1], 'active')
+        removeClass(oLi[3], 'active')
+        onloadCon()
+      }
+      oLi[3].onclick = function() {
+        addClass(oLi[3], 'active')
+        removeClass(oLi[0], 'active')
+        removeClass(oLi[1], 'active')
+        removeClass(oLi[2], 'active')
+        onloadCon()
+      }
+
+      function hasClass(elem, cls) {
+        cls = cls || ''
+        if (cls.replace(/\s/g, '').length == 0) return false
+        return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ')
+      }
+      function addClass(elem, cls) {
+        if (!hasClass(elem, cls)) {
+          elem.className += ' ' + cls
+        }
+      }
+      function removeClass(elem, cls) {
+        if (hasClass(elem, cls)) {
+          var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, '') + ' '
+          while (newClass.indexOf(' ' + cls + ' ') >= 0) {
+            newClass = newClass.replace(' ' + cls + ' ', ' ')
+          }
+          elem.className = newClass.replace(/^\s+|\s+$/g, '')
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  padding-top: 7px;
+  width: 700px;
+  height: 53px;
+  border-bottom: 1px solid #ddd;
+}
+li {
+  list-style: none;
+}
+#wrap {
+  width: 82%;
+  height: 100%;
+  padding: 0 100px;
+}
+.title{
+  clear: both;
+  overflow: auto;
+}
+.title li{
+  float: left;
+  margin-left: 10px;
+  background: #fff;
+  outline: 0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.title li,
+.title a {
+  display: inline-block;
+  width: 145px;
+  height: 42px;
+  font-size: 14px;
+  line-height: 42px;
+  vertical-align: baseline;
+  text-align: center;
+  text-decoration: none;
+  color: #999;
+}
+.title li.active {
+  background: #f39803;
+  border-color: #f29803;
+}
+.title li.active,
+.title li.active a {
+  color: #fff;
+}
+.title li.active i {
+  width: 15px;
+  height: 8px;
+  background: url('../graphs/1701.png') no-repeat;
+  background-size: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.con {
+  padding: 10px;
+}

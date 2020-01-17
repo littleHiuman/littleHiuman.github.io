@@ -17,7 +17,10 @@
 #### javascript 实现简单拖拽
 #### JavaScript实现多个菜单的显示隐藏（JavaScript实现二级/三级菜单的显示隐藏）
 #### JavaScript写的轮播图
-
+#### css3实现图片划过一束光闪过效果
+#### css3实现菜单栏选中时的过渡效果
+#### 选项卡效果的菜单栏
+---
 #### CSSloading图
 #### JavaScript实现日历选择器 datePicker
 #### canvas写的广州地铁图
@@ -28,5 +31,5 @@
 #### AlertMsg提示框
 #### Toast提示框
 #### 其他内容(横屏问题、判断页面是否属于顶部、判断浏览器）
-
+---
 #### addressList 通讯录
