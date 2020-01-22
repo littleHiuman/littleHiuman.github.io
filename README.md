@@ -36,6 +36,7 @@
 ---
 #### HTML+CSS+JS（+Vue）写一个通讯录组件（16-addressList）
 #### JavaScript+CSS+HTML 编写手风琴效果（03-Accordion）
+#### 放大镜效果（18-Magnifier）
 ---
 css/reset.css  常用的重置样式
 

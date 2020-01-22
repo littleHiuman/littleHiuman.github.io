@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>放大镜效果</title>
+	<style type="text/css">
+		#wrapper { width:300px; height:250.2px; position:relative; margin:0 auto; } 
+		#wrapper img { width:100%; height:100%; } 
+		#wrapper span { width:100px; height:100px; background:red; left:0px; top:0px; position:absolute; display:none; opacity:0.2; } 
+		#fangdajing { width:300px; height:300px; position:relative; margin:0 auto; display:none; overflow:hidden; } 
+		#fangdajing-img { position:absolute;} 
+	</style>
+</head>
+<body>
+	<div id="wrapper"> 
+		<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579708058800&di=3fc522600287311e31cffcbffdb65dee&imgtype=0&src=http%3A%2F%2Fa2.att.hudong.com%2F36%2F48%2F19300001357258133412489354717.jpg" /> 
+		<span></span> 
+	</div> 			
+	<div id="fangdajing"> 
+		<img id="fangdajing-img" src="" /> 
+	</div> 
+	<script type="text/javascript">
+		window.onload=function () { 
+			var wrapper=document.getElementById('wrapper'); 
+			var myImg=wrapper.getElementsByTagName('img')[0];
+			var mySpan=wrapper.getElementsByTagName('span')[0]; 
+			var fangdajing=document.getElementById('fangdajing')
+			var fangdajingImg=document.getElementById('fangdajing-img'); 
+			fangdajingImg.src=myImg.src;
+
+			var myImgStyle=getComputedStyle(myImg, null)
+			var fangdajingStyle=getComputedStyle(fangdajing, null)
+			var mySpanStyle=getComputedStyle(mySpan, null)
+
+			fangdajingImg.style.width=myImgStyle.width.slice(0,-2)*(fangdajingStyle.width.slice(0,-2)/mySpanStyle.width.slice(0,-2))+'px';
+			fangdajingImg.style.height=myImgStyle.height.slice(0,-2)*(fangdajingStyle.height.slice(0,-2)/mySpanStyle.height.slice(0,-2))+'px';
+			
+			wrapper.onmouseover=function() { 
+				mySpan.style.display='block'; 
+				fangdajing.style.display = 'block';
+			}; 
+			wrapper.onmouseout=function() { 
+				mySpan.style.display='none'; 
+				fangdajing.style.display = 'none';
+			}; 
+			wrapper.onmousemove=function(ev) { 
+				var oEvent=ev||window.event; 
+				var x=oEvent.clientX-wrapper.offsetLeft-mySpan.offsetWidth/2; 
+				var y=oEvent.clientY-wrapper.offsetTop-mySpan.offsetHeight/2; 
+
+				if(x<0) { 
+					x=0; 
+				} else if(x>wrapper.offsetWidth-mySpan.offsetWidth) { 
+					x=wrapper.offsetWidth-mySpan.offsetWidth; 
+				} 
+				if(y<0) { 
+					y=0; 
+				} else if(y>wrapper.offsetHeight-mySpan.offsetHeight) { 
+					y=wrapper.offsetHeight-mySpan.offsetHeight 
+				} 
+
+				mySpan.style.left=x+'px'; 
+				mySpan.style.top=y+'px'; 
+
+				var percentX=x/(wrapper.offsetWidth-mySpan.offsetWidth); 
+				var percentY=y/(wrapper.offsetHeight-mySpan.offsetHeight); 
+				fangdajingImg.style.left=percentX*(fangdajing.offsetWidth-fangdajingImg.offsetWidth)+'px'; 
+				fangdajingImg.style.top=percentY*(fangdajing.offsetHeight-fangdajingImg.offsetHeight)+'px'; 
+			}; 
+		}; 
+	</script>
+</body>
+</html>

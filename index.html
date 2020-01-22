@@ -134,7 +134,7 @@
 							<br>
 							<code>
 							// 引入<br>
-							import alertMsg from './ssbAlert.vue'<br>
+							import alertMsg from './AlertMsg.vue'<br>
 							<br>
 							// 注册<br>
 							components: {<br>
@@ -164,10 +164,17 @@
             title: 'Toast提示框',
             time: '2017-09-05',
             content: `
-							相对于AlertToast 较不智能<br>
-							用法如下：<br>
+            				有vue版本和JavaScript版本。<br>
+							Toast的vue版本 比 Toast的JavaScript版本 较复杂，两者效果一致，只是两者的实现和对应的使用不同<br>
+							Toast的vue版本 相对于 AlertMsg 较复杂<br>
+							简单来说：<br>
+							<span class="tab"></span>以上三个都是有淡入淡出效果的提示框<br>
+							<span class="tab"></span>AlertMsg是第一行是文字提示，第二行是我知道了<br>
+							<span class="tab"></span>Toast是第一行是图，第二行是文字提示<br>
+							<br>
+							Toast的vue版本用法如下：<br>
 							<code>// 导入<br>
-							import toast from '../toast.vue'<br>
+							import toast from '../Toast.vue'<br>
 							<br>
 							// 注册<br>
 							components: {<br>
@@ -196,6 +203,34 @@
 								<span class="tab"></span>this.title.isToastErrorShow = !this.title.isToastErrorShow<br>
 							}, 2000)<br>
 							</code>
+							<br>
+							<br>
+							Toast的JavaScript版本用法如下：<br>
+							<a href="./15-Toast/test.html">test.html</a><br>
+							<code>// 导入（自行把空格去掉）<br>
+							< script type="text/javascript" src="./Toast.js">< / script><br>
+							用法：<br>
+							<span class="tab"></span>修改配置：<br>
+							<span class="tab"></span>toast.setOptions({<br>
+								<span class="tab"></span><span class="tab"></span>width: '120px', // toast的宽度，可以不传，默认是100px<br>
+								<span class="tab"></span><span class="tab"></span>position: 'middle', // toast出现的位置，可以不传，默认值为bottom；可选值为bottom, top, middle<br>
+								<span class="tab"></span><span class="tab"></span>time: 3000, // 等待多久后消失，可以不传，默认值为2000<br>
+								<span class="tab"></span><span class="tab"></span>fadeTime: 50 // 淡入淡出效果的时间，即每隔多久更新透明度，可以不传，默认值为100<br>
+							<span class="tab"></span>})<br>
+							<span class="tab"></span>使用：<br>
+							<span class="tab"></span>传入的字符串就是文字提示的内容，而loading、success、error、waiting函数则是展示不同图标的toast<br>
+							<span class="tab"></span>toast.loading('loading')<br>
+							<span class="tab"></span>toast.success('success')<br>
+							<span class="tab"></span>toast.error('error')<br>
+							<span class="tab"></span>toast.waiting('waiting')<br>
+							</code>
+							<br>
+							效果图：<br>其中，loading和waiting的图标是有动画效果的
+							<img style="display:block;width:120px;height:100%;" src="./graphs/1501.png"/><br>
+							<img style="display:block;width:120px;height:100%;" src="./graphs/1502.png"/><br>
+							<img style="display:block;width:120px;height:100%;" src="./graphs/1503.png"/><br>
+							<img style="display:block;width:120px;height:100%;" src="./graphs/1504.png"/><br>
+							<br>
 						`
           },
           {
@@ -242,7 +277,7 @@
 									<code>
 									window.addEventListener('orientationchange', function(event){<br>
 										<span class="tab"></span>if( window.orientation == 90 || window.orientation == -90 ) {<br>
-											<span class="tab"></span><span class="tab"></span>toastTIP.alert('请不要转为横屏');<br>
+											<span class="tab"></span><span class="tab"></span>toast.error('请不要转为横屏');<br>
 											<span class="tab"></span>}<br>
 									});<br>
 									</code>

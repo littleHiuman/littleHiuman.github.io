@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Toast</title>
+</head>
+<body>
+	<button class="btn1">loading</button>
+	<button class="btn2">success</button>
+	<button class="btn3">waiting</button>
+	<button class="btn4">error</button>
+	<script type="text/javascript" src="./Toast.js"></script>
+	<script type="text/javascript">
+		toast.setOptions({width: '120px',position: 'middle',time: 3000,fadeTime: 50})
+		document.querySelector('.btn1').onclick = function () {
+			toast.loading('loading')
+		}
+		document.querySelector('.btn2').onclick = function () {
+			toast.success('success')
+		}
+		document.querySelector('.btn3').onclick = function () {
+			toast.waiting('waiting')
+		}
+		document.querySelector('.btn4').onclick = function () {
+			toast.error('error')
+		}
+	</script>
+</body>
+</html>
