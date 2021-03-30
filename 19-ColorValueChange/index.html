@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RGB颜色值与十六进制颜色码转换工具</title>
+  </head>
+  <body>
+    <p>RGB颜色值与十六进制颜色码转换工具</p>
+    <p>RGB颜色值转换成十六进制颜色码：</p>
+    <input type="text" id="rgb-val" value="255,150,150" />
+    <button type="button" id="rgb-btn">转换</button>
+    <p id="rgb-res"></p>
+    <hr />
+    <p>十六进制颜色码转换成RGB颜色值：</p>
+    <input type="text" id="num-val" value="ff9696" />
+    <button type="button" id="num-btn">转换</button>
+    <p id="num-res"></p>
+
+    <script>
+      let rgbBtn = document.getElementById('rgb-btn')
+      let numBtn = document.getElementById('num-btn')
+      rgbBtn.onclick = function () {
+        let rgbVal = document.getElementById('rgb-val').value.trim()
+        let statusOrVal = checkRgbVal(rgbVal)
+        let rgbRes = document.getElementById('rgb-res')
+        if (!statusOrVal) {
+          return (rgbRes.innerText = '输入的RGB值有误！')
+        }
+        let result = getRgbRes(statusOrVal)
+        rgbRes.innerHTML =
+          result +
+          '&nbsp;&nbsp;<input type="color" disabled value="' +
+          result +
+          '"/>'
+      }
+      numBtn.onclick = function () {
+        let numVal = document.getElementById('num-val').value.trim()
+        let status = checkNumVal(numVal)
+        let numRes = document.getElementById('num-res')
+        if (!status) {
+          return (numRes.innerText = '输入的16进制值有误！')
+        }
+        let result = getNumRes(numVal)
+        numRes.innerHTML =
+          result +
+          '&nbsp;&nbsp;<input type="color" disabled value="#' +
+          numVal +
+          '"/>'
+      }
+
+      function checkRgbVal(val) {
+        let temVal = val.split(',')
+        if (temVal.length !== 3) {
+          return false
+        }
+        let status = true
+        temVal = temVal.map((item) => {
+          item.trim()
+          if (!(item >= 0 && item <= 255)) {
+            status = false
+          }
+          return item
+        })
+        if (!status) {
+          return status
+        }
+        return temVal
+      }
+      function getRgbRes(val) {
+        return (
+          '#' +
+          val
+            .map((item) => {
+              return parseInt(item).toString(16)
+            })
+            .join('')
+        )
+      }
+
+      function checkNumVal(val) {
+        let regexp = /^[0-9a-fA-F]{6}$/g
+        return regexp.test(val)
+      }
+      function getNumRes(val) {
+        return (
+          'rgb(' +
+          parseInt(val.slice(0, 2), 16) +
+          ',' +
+          parseInt(val.slice(2, 4), 16) +
+          ',' +
+          parseInt(val.slice(4, 6), 16) +
+          ')'
+        )
+      }
+    </script>
+  </body>
+</html>
