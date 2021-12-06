@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>打开控制台看结果</p>
+  <div>
+    randomArr();<br>
+    默认值 length 5, min 2, max 32
+  </div>
+  <button type="button" onclick="console.log(randomArr())">按钮</button>
+  <hr>
+  <div>
+    randomArr({ length: 3 });
+  </div>
+  <button type="button" onclick="console.log(randomArr({ length: 3 }))">按钮</button>
+  <hr>
+  <div>
+    randomArr({ min: 0 });
+  </div>
+  <button type="button" onclick="console.log(randomArr({ min: 0 }))">按钮</button>
+  <hr>
+  <div>
+    randomArr({ max: 20 });
+  </div>
+  <button type="button" onclick="console.log(randomArr({ max: 20 }))">按钮</button>
+  <hr>
+  <div>
+    randomArr({ max: 4 });<br>
+    如果 长度参数 比 最小值到最大值的个数少，以 后者 为长度
+  </div>
+  <button type="button" onclick="console.log(randomArr({ max: 4 }))">按钮</button>
+  <script src="./getRandom.js"></script>
+</body>
+</html>

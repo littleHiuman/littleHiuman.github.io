@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>打开控制台看结果</p>
+  <div>
+    1. 通过typeof来判断<br>
+    <button type="button" onclick="checkByTypeof()">按钮</button>
+    <pre><code>
+    typeof undefined // undefined
+    typeof 1 // number
+    typeof '1' // string
+    typeof true // boolean
+    typeof function() {} // function
+    typeof Symbol() // symbol
+
+    // 以下类型需要别的方式判断
+    typeof null // object
+    typeof {} // object
+    typeof [] // object
+  </code></pre>
+  </div>
+
+  <div>
+    2. 通过instanceof来判断 或 通过constructor来判断<br>
+    <button type="button" onclick="checkByInstanceofOrConstructor()">按钮</button>
+    <pre><code>
+    let obj = {}
+
+    // 以下这个不准确，因为instanceof会去找原型链。而引用类型的__proto__最终都会指向Object.prototype。
+    obj instanceof Object // true
+    [] instanceof Object // true
+    new Date() instanceof Object // true
+    new RegExp() instanceof Object // true
+
+    // 判断对象更好的方式：
+    obj.constructor === Object // true
+
+    // 判断数组
+    [] instanceof Array // true
+    [].constructor === Array // true
+
+    // 判断日期对象
+    new Date() instanceof Date // true
+    new Date().constructor === Date // true
+
+    // 判断正则表达式对象
+    new RegExp() instanceof RegExp // true
+    new RegExp().constructor === RegExp // true
+    </code></pre>
+</div>
+
+<div>
+  3. null直接全等判断即可
+  <pre><code>
+    null === null // true
+  </code></pre>
+</div>
+
+<div>
+  4. 万能判断方式：Object.prototype.toString.call()<br>
+  <button type="button" onclick="checkByTostring()">按钮</button>
+  <pre><code>
+    // 引用类型
+    Object.prototype.toString.call({}) // [object Object]
+    Object.prototype.toString.call([]) // [object Array]
+    Object.prototype.toString.call(new Date()) // [object Date]
+    Object.prototype.toString.call(new RegExp()) // [object RegExp]
+    Object.prototype.toString.call(function(){}) // [object Function]
+
+    // 基本类型
+    Object.prototype.toString.call(null) // [object Null]
+    Object.prototype.toString.call(undefined) // [object Undefined]
+    Object.prototype.toString.call(true) // [object Boolean]
+    Object.prototype.toString.call('1') // [object String]
+    Object.prototype.toString.call(1) // [object Number]
+    Object.prototype.toString.call(Symbol()) // [object Symbol]
+  </code></pre>
+</div>
+<script>
+  function checkByTypeof() {
+    console.log(
+      typeof undefined, // undefined
+      typeof 1, // number
+      typeof '1', // string
+      typeof true, // boolean
+      typeof function () {}, // function
+      typeof Symbol(), // symbol
+      // 以下类型需要别的方式判断
+      typeof null, // object
+      typeof {}, // object
+      typeof [] // object
+    )
+  }
+  function checkByInstanceofOrConstructor() {
+    const obj = {}
+    console.log(
+      // 以下这个不准确，因为instanceof会去找原型链。而引用类型的__proto__最终都会指向Object.prototype。
+      obj instanceof Object, // true
+      [] instanceof Object, // true
+      new Date() instanceof Object, // true
+      new RegExp() instanceof Object, // true
+
+      // 判断对象更好的方式：
+      obj.constructor === Object, // true
+
+      // 判断数组
+      [] instanceof Array, // true
+      [].constructor === Array, // true
+
+      // 判断日期对象
+      new Date() instanceof Date, // true
+      new Date().constructor === Date, // true
+
+      // 判断正则表达式对象
+      new RegExp() instanceof RegExp, // true
+      new RegExp().constructor === RegExp // true
+    )
+  }
+  function checkByTostring() {
+    console.log(
+      // 引用类型
+      Object.prototype.toString.call({}), // [object Object]
+      Object.prototype.toString.call([]), // [object Array]
+      Object.prototype.toString.call(new Date()), // [object Date]
+      Object.prototype.toString.call(new RegExp()), // [object RegExp]
+      Object.prototype.toString.call(function () {}), // [object Function]
+
+      // 基本类型
+      Object.prototype.toString.call(null), // [object Null]
+      Object.prototype.toString.call(undefined), // [object Undefined]
+      Object.prototype.toString.call(true), // [object Boolean]
+      Object.prototype.toString.call('1'), // [object String]
+      Object.prototype.toString.call(1), // [object Number]
+      Object.prototype.toString.call(Symbol()) // [object Symbol]
+    )
+}
+</script>
+</body>
+</html>

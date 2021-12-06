@@ -1,0 +1,24 @@
+.rect-1 {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.rect-2 {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+
+.rect-3 {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-color: blue;
+}
+
+.fl {
+  float: left;
+}
