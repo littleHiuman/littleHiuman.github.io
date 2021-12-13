@@ -25,7 +25,7 @@
     2.1. 原版：01-menuAndContent/index.html
 
     2.2. 改进版：01-menuAndContent/index2.html
-3. canvas写的广州地铁图（02-GZsubway-canvas）另附：https://github.com/littleHiuman/GZsubway-canvas
+3. canvas写的广州地铁图，项目地址：https://github.com/littleHiuman/GZsubway-canvas
 4.  JavaScript+CSS+HTML 编写手风琴效果（03-Accordion）
 5. js生成当前日期起，一周内的日期+周几/今日（生成周历）（04-WeeklyCalendar）
 6. js实现输入框搜索提示功能（05-SearchList）
