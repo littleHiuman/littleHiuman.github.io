@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>6 位验证码输入框</title>
+  <style>
+    input {
+      width: 30px;
+      height: 30px;
+      border: none;
+      outline: none;
+      text-align: center;
+      border-bottom: 1px solid gray;
+      margin-right: 4px;
+    }
+
+    input:focus {
+      border-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <div id="app" @paste="pasteHandler($event)">
+    <input type="text" v-for="(item,index) in numbers" :key="index"
+           :value="numbers[index]" @input="inputHandler($event,index)"
+           @keydown.delete="deleteHandler($event,index)" />
+    <br>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          numbers: ['', '', '', '', '', ''],
+        }
+      },
+      methods: {
+        deleteHandler (e, index) {
+          if (e.key == 'Backspace') {
+            this.numbers[index] = ''
+            if (index != 0 && !e.target.value.length) {
+              e.target.parentNode.childNodes[index - 1].focus()
+            }
+          }
+        },
+        inputHandler (e, index) {
+          if (e.inputType == 'insertText') {
+            let inputValue = e.target.value
+            if (inputValue.length > 1) {
+              e.target.value = inputValue[inputValue.length - 1]
+            }
+            this.numbers[index] = e.data
+            if (index != this.numbers.length - 1) {
+              e.target.parentNode.childNodes[index + 1].focus()
+            }
+          } else if (e.inputType == 'deleteContentBackward') {
+            this.numbers[index] = ''
+            if (index != 0) {
+              e.target.parentNode.childNodes[index - 1].focus()
+            }
+          } else if (e.inputType == 'insertFromPaste') {
+            if (e.target.value.length > 1) {
+              e.target.value = e.target.value[0]
+            }
+          } else if (e.inputType == 'deleteContentForward') {
+            this.numbers[index] = ''
+          }
+          console.log('inputHandler', e, this.numbers, index);
+        },
+        pasteHandler (e) {
+          const clipdata = e.clipboardData || window.clipboardData
+          const value = clipdata.getData('text/plain')
+          if (value.length == 6) {
+            // this.$set(this, 'numbers', value.split(''))
+            this.numbers = value.split('')
+            if (e.target.tagName == 'INPUT') {
+              var parent = e.target.parentElement
+              var inputs = parent.querySelectorAll('input')
+              inputs[inputs.length - 1].focus()
+            }
+          }
+        },
+      },
+    })
+  </script>
+</body>
+
+</html>

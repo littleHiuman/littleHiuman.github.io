@@ -74,3 +74,4 @@
 26. 检查变量的类型（22-checkType）
 27. CSS 超出的文字显示省略号（单行、多行）
 28. 全屏滚动插件：fullPage.js http://fullpage.81hu.com/ https://github.com/alvarotrigo/fullPage.js
+29. 6 位验证码输入框（29-verifyCode）
