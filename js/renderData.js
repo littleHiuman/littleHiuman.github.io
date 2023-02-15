@@ -764,7 +764,7 @@ let blogs = [
   },
   {
     title: '得到两数相除的百分数',
-    time: '',
+    time: '2016-12-20',
     content: `原理：<br>
               Math.ceil()   //向上取整<br>
               Math.floor()  //向下取整<br>
