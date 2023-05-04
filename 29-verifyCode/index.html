@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width" />
   <title>6 位验证码输入框</title>
   <style>
-    input {
+    .input-content {
       width: 30px;
       height: 30px;
       border: none;
@@ -16,8 +16,12 @@
       margin-right: 4px;
     }
 
-    input:focus {
+    .input-content:focus {
       border-color: red;
+    }
+
+    .input-content:last-child {
+      margin-right: 0;
     }
   </style>
 </head>
@@ -25,11 +29,13 @@
 <body>
   <script
           src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
-  <div id="app" @paste="pasteHandler($event)">
-    <input type="text" v-for="(item,index) in numbers" :key="index"
-           :value="numbers[index]" @input="inputHandler($event,index)"
-           @keydown.delete="deleteHandler($event,index)" />
-    <br>
+  <div id="app">
+    <div class="input-wrap" @paste="pasteHandler($event)">
+      <input class="input-content" type="text" v-for="(item,index) in numbers"
+             :key="index" :value="numbers[index]"
+             @input="inputHandler($event,index)"
+             @keydown.delete="deleteHandler($event,index)" />
+    </div>
   </div>
   <script>
     new Vue({
@@ -42,47 +48,71 @@
       methods: {
         deleteHandler (e, index) {
           if (e.key == 'Backspace') {
-            this.numbers[index] = ''
-            if (index != 0 && !e.target.value.length) {
-              e.target.parentNode.childNodes[index - 1].focus()
+            this.numbers[index] = '';
+            if (index != 0) {
+              setTimeout(() => {
+                e.target.parentNode.childNodes[index - 1].focus();
+              }, 0);
             }
           }
         },
         inputHandler (e, index) {
-          if (e.inputType == 'insertText') {
-            let inputValue = e.target.value
-            if (inputValue.length > 1) {
-              e.target.value = inputValue[inputValue.length - 1]
-            }
-            this.numbers[index] = e.data
-            if (index != this.numbers.length - 1) {
-              e.target.parentNode.childNodes[index + 1].focus()
-            }
-          } else if (e.inputType == 'deleteContentBackward') {
-            this.numbers[index] = ''
-            if (index != 0) {
-              e.target.parentNode.childNodes[index - 1].focus()
-            }
-          } else if (e.inputType == 'insertFromPaste') {
-            if (e.target.value.length > 1) {
-              e.target.value = e.target.value[0]
-            }
-          } else if (e.inputType == 'deleteContentForward') {
-            this.numbers[index] = ''
+          switch (e.inputType) {
+            case 'insertText':
+              const inputValue = e.target.value;
+              if (inputValue.length > 1) {
+                e.target.value = inputValue.slice(-1);
+              }
+              this.numbers[index] = e.data;
+              if (index < this.numbers.length - 1) {
+                e.target.parentNode.childNodes[index + 1].focus();
+              }
+              break;
+            case 'deleteContentBackward':
+              this.numbers[index] = '';
+              if (index !== 0) {
+                e.target.parentNode.childNodes[index - 1].focus();
+              }
+              break;
+            case 'insertFromPaste':
+              if (e.target.value.length > 1) {
+                e.target.value = e.target.value.slice(0, 1);
+              }
+              break;
+            case 'deleteContentForward':
+              this.numbers[index] = '';
+              break;
           }
-          console.log('inputHandler', e, this.numbers, index);
         },
         pasteHandler (e) {
-          const clipdata = e.clipboardData || window.clipboardData
-          const value = clipdata.getData('text/plain')
-          if (value.length == 6) {
-            // this.$set(this, 'numbers', value.split(''))
-            this.numbers = value.split('')
+          const clipdata = e.clipboardData || window.clipboardData;
+          let value = clipdata.getData('text/plain');
+          let len = value.length
+          if (len == 6) {
+            this.numbers = value.split('');
             if (e.target.tagName == 'INPUT') {
-              var parent = e.target.parentElement
-              var inputs = parent.querySelectorAll('input')
-              inputs[inputs.length - 1].focus()
+              const parent = e.target.parentElement;
+              const inputs = parent.querySelectorAll('input');
+              inputs[inputs.length - 1].focus();
             }
+          } else {
+            let parent = document.querySelector('.input-wrap')
+            let focusInput = parent.querySelector('input.input-content:focus')
+            let index = -1
+            for (let child of parent.children) {
+              index += 1
+              if (child == focusInput) {
+                break
+              }
+            }
+            if (len > 6 - index) {
+              value = value.slice(0, 6 - index)
+              len = value.length
+            }
+
+            this.numbers.splice(index, len, ...value.split(''))
+            const inputs = parent.querySelectorAll('input');
+            inputs[index + len - 1].focus();
           }
         },
       },

@@ -29,6 +29,7 @@ let blogs = [
     title: 'js生成当前日期起，一周内的日期+周几/今日（生成周历）',
     time: '2016-09-08',
     content: `js生成当前日期起，一周内的日期+周几/今日<br>
+              更新：还可以使用 xm-fns - npm 里的 getWeekDate 方法<br>
               <a href="./04-WeeklyCalendar/index.html">点击这里</a><br>
               效果图：<br>
               <img style="display:block;width:100%;height:100%;" src="./graphs/0401.png"/><br>
